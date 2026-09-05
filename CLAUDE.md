@@ -32,6 +32,11 @@ Video: "The Complete SEO & AI SEO Course for 2026 (Full Beginner's Guide)", Surf
 Strong: money pages exist with transparent pricing, FAQ + Dentist schema on almost every page, direct-answer copy, an `llms.txt`, 505 Google reviews, sitemap + robots correct, HTTPS/non-www canonicalised.
 Gaps: no blog despite a homepage link to one (`/blog/` is 404); 27 titles over 60 chars; 38 meta descriptions over 160; 7 pages share one meta description; 116 images without alt text; 5 pages with 0 or 2 H1s; three duplicate URLs kept in the sitemap (`/sedation/`, `/emergency-dentist-in-rugby/`, `/pricing-3/`) instead of 301s; thin testimonials/gallery/contact pages; body internal links are sparse on many treatment pages; legacy Universal Analytics tag still firing; `og:locale`/`inLanguage` say en_US; typos on the homepage ("RECCOMENDED", "Warwwickshire"); no security headers; **Lighthouse mobile performance 36 (home) / 45 (Invisalign), desktop 57** — the largest technical gap; `llms.txt` opens with a redirecting URL.
 
+## Handover
+
+This project can be continued from any chat or workspace: see `seo-playbook/HANDOVER.md` for the prompt to paste. The chat that has the most connectors (Search Console, Bing, Google Business Profile, WordPress, Dentally, Trello) should own Phases 1 onward.
+
 ## Progress log
 
 - 2026-09-05 — Phase 0 complete on Claude's side: video extracted, tools researched, 63-URL crawl and Lighthouse done, playbook/tools/audit/process/memory written and pushed. Waiting on Tim: read PLAYBOOK + AUDIT, answer Gate 1 (four questions at the end of TOOLS.md).
+- 2026-09-05 — Connector check in this session: only GitHub, Gmail, Google Calendar, Google Drive, Higgsfield, Docusign are enabled. WordPress.com, Dentally, Make, Zapier, Microsoft 365, Stripe, GoCardless are installed but off. No Search Console, Bing, Google Business Profile, Trello, Elementor, Surfer or DataForSEO connectors exist here. Handover file added so a better-connected chat can take over.
