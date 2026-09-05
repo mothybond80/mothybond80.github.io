@@ -21,7 +21,7 @@
 
 ---
 
-## Phase 0 — Learn and audit (this session)  ✅ mostly done
+## Phase 0 — Learn and audit (this session)  ✅ Claude's part done
 
 - [x] Extract the full video (transcript, chapters, tools) → `PLAYBOOK.md`
 - [x] Check API availability of every tool → `TOOLS.md`
