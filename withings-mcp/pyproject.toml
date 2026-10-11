@@ -1,0 +1,26 @@
+[project]
+name = "withings-mcp"
+version = "0.1.0"
+description = "MCP server exposing Withings health data (weight, blood pressure, sleep, activity, ECG) to Claude"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=2.0",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+withings-mcp = "server:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+include = ["server.py"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
