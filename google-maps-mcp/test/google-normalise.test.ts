@@ -15,23 +15,33 @@ import {
   geocodeRugby,
   jsonResponse,
   noSleep,
-  placesTimBondDental,
+  placesRugbySmiles,
   routeKenilworthToRugby,
 } from './fixtures.js';
 
 describe('Places response normalisation', () => {
-  it('takes the first place', () => {
-    expect(normalisePlacesResponse(placesTimBondDental, 'tim bond dental')).toEqual({
-      name: 'Tim Bond Dental',
-      address: '1 Example Street, Rugby CV21 2AA, UK',
-      coordinates: { lat: 52.3712, lng: -1.2614 },
-      placeId: 'ChIJTEST_TimBondDental',
+  it('maps every place with its optional fields', () => {
+    const places = normalisePlacesResponse(placesRugbySmiles, 'rugby smiles');
+    expect(places).toHaveLength(2);
+    expect(places[0]).toEqual({
+      name: 'Rugby Smiles',
+      address: 'Church Street, Rugby CV21 3PU, UK',
+      coordinates: { lat: 52.3728, lng: -1.2598 },
+      placeId: 'ChIJTEST_RugbySmiles',
       source: 'places',
+      type: 'Dentist',
+      rating: 4.9,
+      ratingCount: 120,
+      phone: '01788 000000',
+      website: 'https://rugbysmiles.co.uk/',
+      openNow: true,
+      googleMapsLink: 'https://maps.google.com/?cid=1',
     });
+    expect(places[1]).toMatchObject({ name: 'Another Dentist', rating: null, phone: null, openNow: null });
   });
 
-  it('returns null for an empty result ({} is what Google sends)', () => {
-    expect(normalisePlacesResponse({}, 'x')).toBeNull();
+  it('returns [] for an empty result ({} is what Google sends)', () => {
+    expect(normalisePlacesResponse({}, 'x')).toEqual([]);
   });
 
   it('rejects malformed coordinates', () => {
@@ -108,23 +118,29 @@ describe('Routes response normalisation', () => {
 });
 
 describe('Google Maps link', () => {
-  const place = normalisePlacesResponse(placesTimBondDental, 'x')!;
+  const place = normalisePlacesResponse(placesRugbySmiles, 'x')[0]!;
 
   it('omits origin so the phone starts from its live location', () => {
     const url = new URL(buildGoogleMapsLink(place, 'driving'));
     expect(url.origin + url.pathname).toBe('https://www.google.com/maps/dir/');
     expect(url.searchParams.get('api')).toBe('1');
     expect(url.searchParams.get('origin')).toBeNull();
-    expect(url.searchParams.get('destination')).toBe('Tim Bond Dental');
-    expect(url.searchParams.get('destination_place_id')).toBe('ChIJTEST_TimBondDental');
+    expect(url.searchParams.get('destination')).toBe('Rugby Smiles');
+    expect(url.searchParams.get('destination_place_id')).toBe('ChIJTEST_RugbySmiles');
     expect(url.searchParams.get('travelmode')).toBe('driving');
   });
 
   it('uses lat,lng without a place id and maps cycling to bicycling', () => {
     const url = new URL(buildGoogleMapsLink({ ...place, placeId: null }, 'cycling', 'Kenilworth'));
-    expect(url.searchParams.get('destination')).toBe('52.3712,-1.2614');
+    expect(url.searchParams.get('destination')).toBe('52.3728,-1.2598');
     expect(url.searchParams.get('origin')).toBe('Kenilworth');
     expect(url.searchParams.get('travelmode')).toBe('bicycling');
+  });
+
+  it('accepts a plain destination string', () => {
+    const url = new URL(buildGoogleMapsLink('Rugby Smiles, Rugby', 'walking'));
+    expect(url.searchParams.get('destination')).toBe('Rugby Smiles, Rugby');
+    expect(url.searchParams.get('destination_place_id')).toBeNull();
   });
 
   it('never contains the API key', () => {
@@ -146,20 +162,35 @@ describe('GoogleMapsClient requests', () => {
     });
 
   it('sends the key in a header, with a field mask and location bias', async () => {
-    const f = fakeFetch({ [PLACES_TEXT_SEARCH_URL]: jsonResponse(placesTimBondDental) });
-    await client(f.fetch).resolveDestination('Tim Bond Dental');
+    const f = fakeFetch({ [PLACES_TEXT_SEARCH_URL]: jsonResponse(placesRugbySmiles) });
+    await client(f.fetch).searchPlaces('Rugby Smiles', { maxResults: 2 });
     const call = f.calls[0]!;
     const headers = call.init!.headers as Record<string, string>;
     expect(headers['X-Goog-Api-Key']).toBe(TEST_API_KEY);
     expect(headers['X-Goog-FieldMask']).toContain('places.location');
     expect(call.url).not.toContain(TEST_API_KEY);
+    expect(call.body.pageSize).toBe(2);
     expect(call.body.locationBias.circle.center).toEqual({ latitude: 52.37, longitude: -1.26 });
   });
 
-  it('falls back to Geocoding when Places finds nothing', async () => {
+  it('"near" overrides the configured bias', async () => {
+    const f = fakeFetch({ [PLACES_TEXT_SEARCH_URL]: jsonResponse(placesRugbySmiles) });
+    await client(f.fetch).searchPlaces('dentist', { near: { lat: 51.5, lng: -0.1 } });
+    expect(f.calls[0]!.body.locationBias.circle.center).toEqual({ latitude: 51.5, longitude: -0.1 });
+  });
+
+  it('resolveDestination falls back to Geocoding when Places finds nothing', async () => {
     const f = fakeFetch({ [PLACES_TEXT_SEARCH_URL]: jsonResponse({}), [GEOCODE_URL]: jsonResponse(geocodeRugby) });
     const place = await client(f.fetch).resolveDestination('Rugby');
     expect(place.source).toBe('geocoding');
+    expect(f.calls[0]!.body.pageSize).toBe(1);
+  });
+
+  it('resolveDestination accepts "lat,lng" without calling Google', async () => {
+    const f = fakeFetch({});
+    const place = await client(f.fetch).resolveDestination('52.37,-1.26');
+    expect(place.coordinates).toEqual({ lat: 52.37, lng: -1.26 });
+    expect(f.calls).toHaveLength(0);
   });
 
   it('throws DESTINATION_NOT_FOUND when nothing matches', async () => {
@@ -170,9 +201,17 @@ describe('GoogleMapsClient requests', () => {
     await expect(client(f.fetch).resolveDestination('nowhere-xyz')).rejects.toMatchObject({ code: 'DESTINATION_NOT_FOUND' });
   });
 
+  it('geocode reverse-geocodes "lat,lng" via latlng=', async () => {
+    const f = fakeFetch({ [GEOCODE_URL]: jsonResponse(geocodeRugby) });
+    await client(f.fetch).geocode('52.3709,-1.265');
+    const url = new URL(f.calls[0]!.url);
+    expect(url.searchParams.get('latlng')).toBe('52.3709,-1.265');
+    expect(url.searchParams.get('address')).toBeNull();
+  });
+
   it('turns a 403 into a clear error without the body', async () => {
     const f = fakeFetch({ [PLACES_TEXT_SEARCH_URL]: jsonResponse({ error: { message: `key ${TEST_API_KEY}` } }, 403) });
-    const err = await client(f.fetch).searchPlace('x').catch((e) => e);
+    const err = await client(f.fetch).searchPlaces('x').catch((e) => e);
     expect(err.code).toBe('GOOGLE_API_ERROR');
     expect(err.message).toMatch(/403.*API key/);
     expect(err.message).not.toContain(TEST_API_KEY);
@@ -180,11 +219,11 @@ describe('GoogleMapsClient requests', () => {
 
   it('builds a DRIVE route with modifiers and a placeId destination', async () => {
     const f = fakeFetch({ [COMPUTE_ROUTES_URL]: jsonResponse(routeKenilworthToRugby) });
-    const place = normalisePlacesResponse(placesTimBondDental, 'x')!;
+    const place = normalisePlacesResponse(placesRugbySmiles, 'x')[0]!;
     await client(f.fetch).computeRoute({ origin: '52.34,-1.58', destination: place, travelMode: 'driving', avoidTolls: true, avoidHighways: false });
     const body = f.calls[0]!.body;
     expect(body.origin).toEqual({ location: { latLng: { latitude: 52.34, longitude: -1.58 } } });
-    expect(body.destination).toEqual({ placeId: 'ChIJTEST_TimBondDental' });
+    expect(body.destination).toEqual({ placeId: 'ChIJTEST_RugbySmiles' });
     expect(body.travelMode).toBe('DRIVE');
     expect(body.routeModifiers).toEqual({ avoidTolls: true, avoidHighways: false });
     expect(body.routingPreference).toBe('TRAFFIC_AWARE');
@@ -192,7 +231,7 @@ describe('GoogleMapsClient requests', () => {
 
   it('omits driving-only fields for transit', async () => {
     const f = fakeFetch({ [COMPUTE_ROUTES_URL]: jsonResponse(routeKenilworthToRugby) });
-    const place = normalisePlacesResponse(placesTimBondDental, 'x')!;
+    const place = normalisePlacesResponse(placesRugbySmiles, 'x')[0]!;
     await client(f.fetch).computeRoute({ origin: 'Coventry', destination: place, travelMode: 'transit', avoidTolls: true, avoidHighways: true });
     const body = f.calls[0]!.body;
     expect(body.travelMode).toBe('TRANSIT');

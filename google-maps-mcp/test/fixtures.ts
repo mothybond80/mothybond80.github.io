@@ -2,7 +2,7 @@ import type { FetchFn } from '../src/http/retry.js';
 import { loadConfig, type Config } from '../src/config.js';
 
 export const TEST_API_KEY = 'AIza-TEST-KEY-should-never-appear';
-export const TEST_G2_TOKEN = 'g2-secret-token-should-never-appear';
+export const TEST_AUTH_TOKEN = 'mcp-auth-token-should-never-appear';
 
 export function testConfig(overrides: Record<string, string> = {}): Config {
   return loadConfig({
@@ -16,13 +16,26 @@ export function testConfig(overrides: Record<string, string> = {}): Config {
 }
 
 /** Shapes taken from the Places (New), Geocoding and Routes API docs. */
-export const placesTimBondDental = {
+export const placesRugbySmiles = {
   places: [
     {
-      id: 'ChIJTEST_TimBondDental',
-      displayName: { text: 'Tim Bond Dental', languageCode: 'en' },
-      formattedAddress: '1 Example Street, Rugby CV21 2AA, UK',
-      location: { latitude: 52.3712, longitude: -1.2614 },
+      id: 'ChIJTEST_RugbySmiles',
+      displayName: { text: 'Rugby Smiles', languageCode: 'en' },
+      formattedAddress: 'Church Street, Rugby CV21 3PU, UK',
+      location: { latitude: 52.3728, longitude: -1.2598 },
+      primaryTypeDisplayName: { text: 'Dentist' },
+      rating: 4.9,
+      userRatingCount: 120,
+      nationalPhoneNumber: '01788 000000',
+      websiteUri: 'https://rugbysmiles.co.uk/',
+      googleMapsUri: 'https://maps.google.com/?cid=1',
+      currentOpeningHours: { openNow: true },
+    },
+    {
+      id: 'ChIJTEST_Other',
+      displayName: { text: 'Another Dentist' },
+      formattedAddress: 'High Street, Rugby, UK',
+      location: { latitude: 52.37, longitude: -1.26 },
     },
   ],
 };

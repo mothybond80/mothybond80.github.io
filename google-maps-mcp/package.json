@@ -1,15 +1,15 @@
 {
-  "name": "g2-navigation-bridge",
-  "version": "0.1.0",
-  "description": "Resolves navigation requests with Google Maps Platform and hands them to Even Realities G2 Navigation, over HTTP or as an MCP tool.",
+  "name": "google-maps-mcp",
+  "version": "0.2.0",
+  "description": "Google Maps MCP server: find places, geocode, get directions and build navigation links. Runs over stdio (Claude Code) or Streamable HTTP (claude.ai connector).",
   "private": true,
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
+    "dev": "tsx watch src/http.ts",
+    "start": "node dist/http.js",
     "start:mcp": "node dist/mcp.js",
     "mcp": "tsx src/mcp.ts",
     "build": "tsc -p tsconfig.build.json",

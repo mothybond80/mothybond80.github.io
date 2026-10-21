@@ -15,6 +15,21 @@ export const PLACES_TEXT_SEARCH_URL = 'https://places.googleapis.com/v1/places:s
 export const GEOCODE_URL = 'https://maps.googleapis.com/maps/api/geocode/json';
 export const COMPUTE_ROUTES_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
 
+/** Field mask for text search. Keep this list short: each extra field group costs more per call. */
+export const PLACES_FIELD_MASK = [
+  'places.id',
+  'places.displayName',
+  'places.formattedAddress',
+  'places.location',
+  'places.primaryTypeDisplayName',
+  'places.rating',
+  'places.userRatingCount',
+  'places.nationalPhoneNumber',
+  'places.websiteUri',
+  'places.googleMapsUri',
+  'places.currentOpeningHours.openNow',
+];
+
 export interface GoogleMapsClientOptions {
   apiKey: string;
   region: string;
@@ -37,8 +52,8 @@ export interface RouteRequest {
 }
 
 /**
- * Thin Google Maps Platform client: Places (New) text search, Geocoding as a
- * fallback, and Routes. Every response is validated before use.
+ * Thin Google Maps Platform client: Places (New) text search, Geocoding, and
+ * Routes. Every response is validated before use.
  *
  * The API key travels in the X-Goog-Api-Key header where the API allows it.
  * Geocoding only accepts `key=` in the query string, so its URL is never logged.
@@ -56,42 +71,48 @@ export class GoogleMapsClient {
     };
   }
 
-  /** Places text search first (handles business names), Geocoding second (handles bare addresses). */
+  /**
+   * Resolve one destination: "lat,lng" as-is, otherwise Places text search
+   * first (handles business names), Geocoding second (handles bare addresses).
+   */
   async resolveDestination(query: string): Promise<ResolvedPlace> {
-    const place = (await this.searchPlace(query)) ?? (await this.geocode(query));
+    const ll = parseLatLng(query);
+    if (ll) return { name: query, address: null, coordinates: ll, placeId: null, source: 'geocoding' };
+    const place = (await this.searchPlaces(query, { maxResults: 1 }))[0] ?? (await this.geocode(query));
     if (!place) {
       throw new BridgeError('DESTINATION_NOT_FOUND', `Could not find "${query}" on Google Maps`, 404);
     }
     return place;
   }
 
-  async searchPlace(query: string): Promise<ResolvedPlace | null> {
+  async searchPlaces(
+    query: string,
+    opts: { maxResults?: number; near?: Coordinates } = {},
+  ): Promise<ResolvedPlace[]> {
+    const bias = opts.near ?? this.opts.locationBias;
     const body: Record<string, unknown> = {
       textQuery: query,
       languageCode: this.opts.language,
       regionCode: this.opts.region,
-      pageSize: 1,
+      pageSize: opts.maxResults ?? 3,
     };
-    if (this.opts.locationBias) {
+    if (bias) {
       body.locationBias = {
         circle: {
-          center: { latitude: this.opts.locationBias.lat, longitude: this.opts.locationBias.lng },
+          center: { latitude: bias.lat, longitude: bias.lng },
           radius: this.opts.locationBiasRadiusM ?? 30000,
         },
       };
     }
-    const json = await this.postJson(PLACES_TEXT_SEARCH_URL, body, 'Google Places', [
-      'places.id',
-      'places.displayName',
-      'places.formattedAddress',
-      'places.location',
-    ]);
+    const json = await this.postJson(PLACES_TEXT_SEARCH_URL, body, 'Google Places', PLACES_FIELD_MASK);
     return normalisePlacesResponse(json, query);
   }
 
+  /** Forward geocoding for an address, or reverse geocoding for "lat,lng". */
   async geocode(query: string): Promise<ResolvedPlace | null> {
+    const ll = parseLatLng(query);
     const params = new URLSearchParams({
-      address: query,
+      ...(ll ? { latlng: `${ll.lat},${ll.lng}` } : { address: query }),
       region: this.opts.region,
       language: this.opts.language,
       key: this.opts.apiKey,

@@ -2,13 +2,20 @@ import { z } from 'zod';
 import { BridgeError } from '../errors.js';
 import type { Coordinates, TravelMode } from '../schemas.js';
 
-/** A destination resolved by Google, independent of which API found it. */
+/** A place resolved by Google, independent of which API found it. */
 export interface ResolvedPlace {
   name: string;
   address: string | null;
   coordinates: Coordinates;
   placeId: string | null;
   source: 'places' | 'geocoding';
+  type?: string | null;
+  rating?: number | null;
+  ratingCount?: number | null;
+  phone?: string | null;
+  website?: string | null;
+  openNow?: boolean | null;
+  googleMapsLink?: string | null;
 }
 
 export interface RouteSummary {
@@ -37,6 +44,13 @@ export const placesTextSearchResponseSchema = z.object({
         displayName: z.object({ text: z.string().min(1) }).optional(),
         formattedAddress: z.string().optional(),
         location: z.object({ latitude, longitude }),
+        primaryTypeDisplayName: z.object({ text: z.string() }).optional(),
+        rating: z.number().min(0).max(5).optional(),
+        userRatingCount: z.number().int().nonnegative().optional(),
+        nationalPhoneNumber: z.string().optional(),
+        websiteUri: z.string().optional(),
+        googleMapsUri: z.string().optional(),
+        currentOpeningHours: z.object({ openNow: z.boolean().optional() }).optional(),
       }),
     )
     .optional(),
@@ -84,19 +98,24 @@ function invalid(api: string, err: z.ZodError): BridgeError {
   return new BridgeError('GOOGLE_API_ERROR', `${api} returned an unexpected response (${where})`, 502);
 }
 
-/** First place from a Text Search response, or null when there were no results. */
-export function normalisePlacesResponse(raw: unknown, query: string): ResolvedPlace | null {
+/** All places from a Text Search response (empty when there were no results). */
+export function normalisePlacesResponse(raw: unknown, query: string): ResolvedPlace[] {
   const parsed = placesTextSearchResponseSchema.safeParse(raw);
   if (!parsed.success) throw invalid('Google Places', parsed.error);
-  const first = parsed.data.places?.[0];
-  if (!first) return null;
-  return {
-    name: first.displayName?.text ?? query,
-    address: first.formattedAddress ?? null,
-    coordinates: { lat: first.location.latitude, lng: first.location.longitude },
-    placeId: first.id ?? null,
-    source: 'places',
-  };
+  return (parsed.data.places ?? []).map((p) => ({
+    name: p.displayName?.text ?? query,
+    address: p.formattedAddress ?? null,
+    coordinates: { lat: p.location.latitude, lng: p.location.longitude },
+    placeId: p.id ?? null,
+    source: 'places' as const,
+    type: p.primaryTypeDisplayName?.text ?? null,
+    rating: p.rating ?? null,
+    ratingCount: p.userRatingCount ?? null,
+    phone: p.nationalPhoneNumber ?? null,
+    website: p.websiteUri ?? null,
+    openNow: p.currentOpeningHours?.openNow ?? null,
+    googleMapsLink: p.googleMapsUri ?? null,
+  }));
 }
 
 const GEOCODE_RETRYABLE = new Set(['OVER_QUERY_LIMIT', 'UNKNOWN_ERROR']);
@@ -123,7 +142,7 @@ export function normaliseGeocodeResponse(raw: unknown, query: string): ResolvedP
   const first = results[0];
   if (!first) return null;
   return {
-    name: query,
+    name: first.formatted_address ?? query,
     address: first.formatted_address ?? null,
     coordinates: first.geometry.location,
     placeId: first.place_id ?? null,
@@ -181,13 +200,22 @@ const MAPS_URL_TRAVEL_MODE: Record<TravelMode, string> = {
 /**
  * Google Maps "Maps URLs" directions link. With no origin, Google Maps uses
  * the device's current location, which is exactly what "from my current
- * location" needs.
+ * location" needs. Accepts a resolved place (uses its place ID) or a plain
+ * destination string.
  */
-export function buildGoogleMapsLink(place: ResolvedPlace, travelMode: TravelMode, origin?: string): string {
+export function buildGoogleMapsLink(
+  place: ResolvedPlace | string,
+  travelMode: TravelMode,
+  origin?: string,
+): string {
   const params = new URLSearchParams({ api: '1' });
   if (origin) params.set('origin', origin);
-  params.set('destination', place.placeId ? place.name : `${place.coordinates.lat},${place.coordinates.lng}`);
-  if (place.placeId) params.set('destination_place_id', place.placeId);
+  if (typeof place === 'string') {
+    params.set('destination', place);
+  } else {
+    params.set('destination', place.placeId ? place.name : `${place.coordinates.lat},${place.coordinates.lng}`);
+    if (place.placeId) params.set('destination_place_id', place.placeId);
+  }
   params.set('travelmode', MAPS_URL_TRAVEL_MODE[travelMode]);
   return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
