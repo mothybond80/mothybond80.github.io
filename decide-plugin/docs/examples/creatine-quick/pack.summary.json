@@ -1,0 +1,787 @@
+{
+ "engine_version": "0.1.0",
+ "built_at": "2026-10-21T23:29:06Z",
+ "mode": "quick",
+ "question": {
+  "neutral": "What is the effect of creatine supplementation on cognitive performance, and in which direction?",
+  "exposure": "creatine supplementation",
+  "outcome": "cognitive performance",
+  "population": null,
+  "comparator": null,
+  "domains": [
+   "nutrition",
+   "psychology",
+   "exercise_science"
+  ],
+  "framing_hash": "143feb79171953ff"
+ },
+ "searches": [
+  {
+   "db": "pubmed",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=25&retmode=json&sort=relevance&term=%28creatine%29%20AND%20%28cognition%20OR%20cognitive%20OR%20memory%20OR%20%22executive%20function%22%20OR%20intelligence%29%20AND%20%28systematic%5Bsb%5D%20OR%20meta-analysis%5Bpt%5D%20OR%20%22systematic%20review%22%5Bpt%5D%20OR%20umbrella%20review%5Btiab%5D%29",
+   "query": "(creatine) AND (cognition OR cognitive OR memory OR \"executive function\" OR intelligence) AND (systematic[sb] OR meta-analysis[pt] OR \"systematic review\"[pt] OR umbrella review[tiab])",
+   "query_translation": "(creatine[Supplementary Concept] OR creatine[All Fields] OR creatine[MeSH Terms]) AND (cognition[MeSH Terms] OR cognitive[All Fields] OR memory[MeSH Terms] OR \"executive function\"[All Fields] OR intelligence[MeSH Terms]) AND (systematic[Filter] OR meta-analysis[Publication Type] OR \"systematic review\"[Publication Type] OR \"umbrella review\"[Title/Abstract])",
+   "count": 60,
+   "returned": 25,
+   "label": "pubmed_reviews"
+  },
+  {
+   "db": "pubmed",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=25&retmode=json&sort=relevance&term=%28creatine%29%20AND%20%28cognition%20OR%20cognitive%20OR%20memory%20OR%20%22executive%20function%22%20OR%20intelligence%29%20AND%20%28randomized%20controlled%20trial%5Bpt%5D%20OR%20controlled%20clinical%20trial%5Bpt%5D%20OR%20randomi%2A%5Btiab%5D%29",
+   "query": "(creatine) AND (cognition OR cognitive OR memory OR \"executive function\" OR intelligence) AND (randomized controlled trial[pt] OR controlled clinical trial[pt] OR randomi*[tiab])",
+   "query_translation": "(creatine[Supplementary Concept] OR creatine[All Fields] OR creatine[MeSH Terms]) AND (cognition[MeSH Terms] OR cognitive[All Fields] OR memory[MeSH Terms] OR \"executive function\"[All Fields] OR intelligence[MeSH Terms]) AND (\"randomized controlled trial\"[Publication Type] OR \"controlled clinical trial\"[Publication Type] OR randomi*[Title/Abstract])",
+   "count": 179,
+   "returned": 25,
+   "label": "pubmed_trials"
+  },
+  {
+   "db": "pubmed",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?datetype=pdat&db=pubmed&mindate=2023%2F01%2F01&retmax=15&retmode=json&sort=pub_date&term=%28creatine%29%20AND%20%28cognition%20OR%20cognitive%20OR%20memory%20OR%20%22executive%20function%22%20OR%20intelligence%29",
+   "query": "(creatine) AND (cognition OR cognitive OR memory OR \"executive function\" OR intelligence)",
+   "query_translation": "(creatine[Supplementary Concept] OR creatine[All Fields] OR creatine[MeSH Terms]) AND (cognition[MeSH Terms] OR cognitive[All Fields] OR memory[MeSH Terms] OR \"executive function\"[All Fields] OR intelligence[MeSH Terms])",
+   "count": 1929,
+   "returned": 15,
+   "label": "pubmed_recent"
+  },
+  {
+   "db": "openalex",
+   "url": "https://api.openalex.org/works?mailto=unknown%40example.org&per-page=20&search=creatine%20supplementation%20cognitive%20performance&select=id%2Cdoi%2Ctitle%2Cdisplay_name%2Cpublication_year%2Ctype%2Ccited_by_count%2Cis_retracted%2Cauthorships%2Cprimary_location%2Copen_access%2Creferenced_works%2Cabstract_inverted_index%2Cids&sort=cited_by_count%3Adesc",
+   "query": "creatine supplementation cognitive performance",
+   "filter": null,
+   "count": 11974,
+   "returned": 20,
+   "label": "openalex_most_cited"
+  }
+ ],
+ "errors": [],
+ "n_records": 76,
+ "relevance_tiers": {
+  "A": 29,
+  "B": 17,
+  "C": 30
+ },
+ "study_type_counts": {
+  "systematic_review": 15,
+  "meta_analysis": 9,
+  "rct": 18,
+  "controlled_trial": 1,
+  "cross_sectional": 1,
+  "narrative_review": 10,
+  "preclinical": 1,
+  "case_report": 2,
+  "unclassified": 19
+ },
+ "retracted_or_flagged": [
+  "R5",
+  "R41"
+ ],
+ "overlap_warnings": [
+  {
+   "a": "10.1093/nutrit/nuac064",
+   "b": "10.1016/j.exger.2018.04.013",
+   "a_title": "Effects of creatine supplementation on memory in healthy individuals: a systematic review and meta-analysis of randomized controlled trials.",
+   "b_title": "Effects of creatine supplementation on cognitive function of healthy individuals: A systematic review of randomized controlled trials.",
+   "shared_refs": 16,
+   "jaccard": 0.198,
+   "containment": 0.348,
+   "note": "likely overlapping included studies; do not count as independent confirmation without checking inclusion tables"
+  },
+  {
+   "a": "10.1093/nutrit/nuac064",
+   "b": "10.1016/j.bbr.2024.114982",
+   "a_title": "Effects of creatine supplementation on memory in healthy individuals: a systematic review and meta-analysis of randomized controlled trials.",
+   "b_title": "Creatine supplementation research fails to support the theoretical basis for an effect on cognition: Evidence from a systematic review.",
+   "shared_refs": 21,
+   "jaccard": 0.125,
+   "containment": 0.457,
+   "note": "likely overlapping included studies; do not count as independent confirmation without checking inclusion tables"
+  }
+ ],
+ "pack_hash": "12f24687f88aa1597a68343ac271aa3b522c37a261c7d1f5b158a6307a20886c",
+ "records_index": [
+  {
+   "ref": "R1",
+   "pmid": "40971619",
+   "doi": "10.1093/nutrit/nuaf135",
+   "year": 2026,
+   "title": "Creatine and Cognition in Aging: A Systematic Review of Evidence in Older Adults.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R2",
+   "pmid": "42261581",
+   "doi": "10.1177/27683605261456529",
+   "year": 2026,
+   "title": "Creatine Supplementation and Acute Sleep Deprivation: A Systematic Review of Cognitive, Psychomotor, and Mood Outcomes.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R3",
+   "pmid": "41558805",
+   "doi": "10.1177/07067437251408171",
+   "year": 2026,
+   "title": "The Effect of Creatine Monohydrate on Mental Disorders: A Systematic Review of Randomized Controlled Trials: Effet du monohydrate de cr\u00e9atine sur les troubles mentaux : examen syst\u00e9matique des essais contr\u00f4l\u00e9s \u00e0 r\u00e9partition al\u00e9atoire.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R4",
+   "pmid": "40755023",
+   "doi": "10.1080/19390211.2025.2539880",
+   "year": 2025,
+   "title": "Creatine Supplementation in Combat Sport Athletes: A Narrative Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R5",
+   "pmid": "39070254",
+   "doi": "10.3389/fnut.2024.1424972",
+   "year": 2024,
+   "title": "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R6",
+   "pmid": "38582412",
+   "doi": "10.1016/j.bbr.2024.114982",
+   "year": 2024,
+   "title": "Creatine supplementation research fails to support the theoretical basis for an effect on cognition: Evidence from a systematic review.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R7",
+   "pmid": "35984306",
+   "doi": "10.1093/nutrit/nuac064",
+   "year": 2023,
+   "title": "Effects of creatine supplementation on memory in healthy individuals: a systematic review and meta-analysis of randomized controlled trials.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R8",
+   "pmid": "37042504",
+   "doi": null,
+   "year": 2023,
+   "title": "Neuroprotection and Therapeutic Implications of Creatine Supplementation for Brain Injury Complications.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R9",
+   "pmid": "32349356",
+   "doi": "10.3390/ijerph17093041",
+   "year": 2020,
+   "title": "Benefits of Creatine Supplementation for Vegetarians Compared to Omnivorous Athletes: A Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R10",
+   "pmid": "30762623",
+   "doi": "10.1519/jpt.0000000000000222",
+   "year": 2020,
+   "title": "The Additive Effects of Creatine Supplementation and Exercise Training in an Aging Population: A Systematic Review of Randomized Controlled Trials.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R11",
+   "pmid": "29704637",
+   "doi": "10.1016/j.exger.2018.04.013",
+   "year": 2018,
+   "title": "Effects of creatine supplementation on cognitive function of healthy individuals: A systematic review of randomized controlled trials.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R12",
+   "pmid": "40854087",
+   "doi": "10.1080/27697061.2025.2551184",
+   "year": 2026,
+   "title": "The Effects of 8-Week Creatine Hydrochloride and Creatine Ethyl Ester Supplementation on Cognition, Clinical Outcomes, and Brain Creatine Levels in Perimenopausal and Menopausal Women (CONCRET-MENOPA): A Randomized Controlled Trial.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R13",
+   "pmid": "42075005",
+   "doi": "10.3390/nu18081192",
+   "year": 2026,
+   "title": "Single-Dose Creatine Reduces Sleep Deprivation-Induced Deterioration in Cognitive Performance.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R14",
+   "pmid": "42578920",
+   "doi": "10.1080/15502783.2026.2716273",
+   "year": 2026,
+   "title": "Effects of creatine supplementation with and without exercise and diet intervention on body composition, cognitive function, and markers of health in middle-aged and older adults.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R15",
+   "pmid": "42730704",
+   "doi": "10.1080/15502783.2026.2711032",
+   "year": 2026,
+   "title": "Effects of six weeks of guanidinoacetic acid supplementation with and without creatine monohydrate on cognitive function and markers of health in healthy adults.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R16",
+   "pmid": "41470776",
+   "doi": "10.3390/nu17243831",
+   "year": 2025,
+   "title": "Effects of Creatine Monohydrate Loading on Sleep Metrics, Physical Performance, Cognitive Function, and Recovery in Physically Active Men: A Randomized, Double-Blind, Placebo-Controlled, Crossover Trial.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R17",
+   "pmid": "39488067",
+   "doi": "10.1016/j.euroneuro.2024.10.004",
+   "year": 2025,
+   "title": "Efficacy and safety profile of oral creatine monohydrate in add-on to cognitive-behavioural therapy in depression: An 8-week pilot, double-blind, randomised, placebo-controlled feasibility and exploratory trial in an under-resourced area.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R18",
+   "pmid": "40758095",
+   "doi": "10.1080/15502783.2025.2542369",
+   "year": 2025,
+   "title": "Acute creatine supplementation enhances technical performance in adolescent basketball players under cognitive-motor dual-task condition.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R19",
+   "pmid": "38542677",
+   "doi": "10.3390/nu16060766",
+   "year": 2024,
+   "title": "The Effect of Creatine Nitrate and Caffeine Individually or Combined on Exercise Performance and Cognitive Function: A Randomized, Crossover, Double-Blind, Placebo-Controlled Trial.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R20",
+   "pmid": "37968687",
+   "doi": "10.1186/s12916-023-03146-5",
+   "year": 2023,
+   "title": "The effects of creatine supplementation on cognitive performance-a randomised controlled study.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R21",
+   "pmid": "24098469",
+   "doi": "10.1371/journal.pone.0076301",
+   "year": 2013,
+   "title": "Creatine supplementation associated or not with strength training upon emotional and cognitive measures in older women: a randomized double-blind study.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R22",
+   "pmid": "21118604",
+   "doi": "10.1017/s0007114510004733",
+   "year": 2011,
+   "title": "The influence of creatine supplementation on the cognitive functioning of vegetarians and omnivores.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R23",
+   "pmid": "17828627",
+   "doi": "10.1080/13825580600788100",
+   "year": 2007,
+   "title": "Creatine supplementation and cognitive performance in elderly individuals.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R24",
+   "pmid": "17046034",
+   "doi": "10.1016/j.physbeh.2006.08.024",
+   "year": 2007,
+   "title": "Creatine supplementation, sleep deprivation, cortisol, melatonin and behavior.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R25",
+   "pmid": "14561278",
+   "doi": "10.1098/rspb.2003.2492",
+   "year": 2003,
+   "title": "Oral creatine monohydrate supplementation improves brain performance: a double-blind, placebo-controlled, cross-over trial.",
+   "study_type": "controlled_trial",
+   "tier": "A"
+  },
+  {
+   "ref": "R26",
+   "pmid": "42479961",
+   "doi": "10.1080/15502783.2026.2702952",
+   "year": 2026,
+   "title": "Real-world creatine supplementation: a large-scale cross-sectional study of use, knowledge, and experiences.",
+   "study_type": "cross_sectional",
+   "tier": "A"
+  },
+  {
+   "ref": "R27",
+   "pmid": "41870601",
+   "doi": "10.1080/15502783.2026.2646627",
+   "year": 2026,
+   "title": "The emerging and evolving evidence supporting creatine as an ergogenic aid: history and applications.",
+   "study_type": "narrative_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R28",
+   "pmid": "42668123",
+   "doi": "10.1016/j.arr.2026.103317",
+   "year": 2026,
+   "title": "The cognitive effects of creatine supplementation in older adults and preclinical models of dementia: A scoping review.",
+   "study_type": "narrative_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R29",
+   "pmid": "42562329",
+   "doi": "10.1016/j.bbr.2026.116405",
+   "year": 2026,
+   "title": "Creatine preserves mitochondrial integrity and ameliorates early epileptiform activity and cognitive impairment via regulation of Na\u207a,K\u207a-ATPase in adolescent rats with severe traumatic brain injury.",
+   "study_type": "preclinical",
+   "tier": "A"
+  },
+  {
+   "ref": "R30",
+   "pmid": "38703861",
+   "doi": "10.1016/j.nbd.2024.106520",
+   "year": 2024,
+   "title": "Biomarkers of mitochondrial dysfunction in autism spectrum disorder: A systematic review and meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R31",
+   "pmid": "38836510",
+   "doi": "10.1080/03007995.2024.2363971",
+   "year": 2024,
+   "title": "Safety profile of proprotein convertase subtilisin/kexin type 9 inhibitors alirocumab and evolocumab: an updated meta-analysis and meta-regression.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R32",
+   "pmid": "36672642",
+   "doi": "10.3390/biomedicines11010136",
+   "year": 2023,
+   "title": "Insights into Pathogenesis, Nutritional and Drug Approach in Sarcopenia: A Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R33",
+   "pmid": "34751136",
+   "doi": "10.1016/j.arr.2021.101503",
+   "year": 2021,
+   "title": "Mitochondrial dysfunction, oxidative stress, neuroinflammation, and metabolic alterations in the progression of Alzheimer's disease: A meta-analysis of in vivo magnetic resonance spectroscopy studies.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R34",
+   "pmid": "34238314",
+   "doi": "10.1186/s12969-021-00580-8",
+   "year": 2021,
+   "title": "Reducing fatigue in pediatric rheumatic conditions: a systematic review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R35",
+   "pmid": "42864138",
+   "doi": "10.1136/bmjopen-2026-119962",
+   "year": 2026,
+   "title": "Effects of \u03b2-hydroxy-\u03b2-methylbutyrate (HMB) and/or 2-hydroxybenzylamine (2-HOBA) on markers of healthspan in older adults (H2AGE trial): study protocol of a randomised controlled trial at the Canadian Translational Geroscience Network.",
+   "study_type": "rct",
+   "tier": "B"
+  },
+  {
+   "ref": "R36",
+   "pmid": "38478179",
+   "doi": "10.1007/s11357-024-01110-6",
+   "year": 2024,
+   "title": "Resistance exercise effects on hippocampus subfield volumes and biomarkers of neuroplasticity and neuroinflammation in older adults with low and high risk of mild cognitive impairment: a randomized controlled trial.",
+   "study_type": "rct",
+   "tier": "B"
+  },
+  {
+   "ref": "R37",
+   "pmid": "34601077",
+   "doi": "10.1016/j.exger.2021.111574",
+   "year": 2021,
+   "title": "The effects of 6-month hydrogen-rich water intake on molecular and phenotypic biomarkers of aging in older adults aged 70 years and over: A randomized controlled pilot trial.",
+   "study_type": "rct",
+   "tier": "B"
+  },
+  {
+   "ref": "R38",
+   "pmid": "41701327",
+   "doi": "10.1080/15502783.2026.2629828",
+   "year": 2026,
+   "title": "International Society of Sports Nutrition position stand: effects of dietary antioxidants on exercise and sports performance.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R39",
+   "pmid": "41570809",
+   "doi": "10.1123/ijsnem.2025-0111",
+   "year": 2026,
+   "title": "UCI Sports Nutrition Project: Considerations and Applications for the Use of Sports Foods and Supplements to Improve Performance in Cycling.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R40",
+   "pmid": "42867546",
+   "doi": "10.1007/s00415-026-14200-6",
+   "year": 2026,
+   "title": "MR spectroscopy of the cerebellum in gluten ataxia and gluten encephalopathy.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R41",
+   "pmid": "30580575",
+   "doi": "10.1161/atv.0000000000000073",
+   "year": 2019,
+   "title": "Statin Safety and Associated Adverse Events: A Scientific Statement From the American Heart Association.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R42",
+   "pmid": "42724629",
+   "doi": "10.1016/j.radcr.2026.08.039",
+   "year": 2026,
+   "title": "Diffuse high-grade glioma with gliomatosis cerebri pattern mimicking symmetric white matter disease.",
+   "study_type": "case_report",
+   "tier": "B"
+  },
+  {
+   "ref": "R43",
+   "pmid": "42885896",
+   "doi": "10.1002/epi4.70370",
+   "year": 2026,
+   "title": "Reversal of refractory epilepsy in an adult with GAMT deficiency: A case report and comparative literature review.",
+   "study_type": "case_report",
+   "tier": "B"
+  },
+  {
+   "ref": "R44",
+   "pmid": "42804599",
+   "doi": "10.1080/19490976.2026.2732659",
+   "year": 2026,
+   "title": "Personalized whole-body modeling links gut microbiota to metabolic perturbations in Alzheimer's disease.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R45",
+   "pmid": "42521095",
+   "doi": "10.1016/j.jad.2026.122332",
+   "year": 2026,
+   "title": "A metabolic \"double hit\" in prefrontal gray and white matter shapes microbiota-related visual learning memory impairment in major depressive disorder.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R46",
+   "pmid": "42847905",
+   "doi": "10.1002/epi4.70366",
+   "year": 2026,
+   "title": "Neurometabolite abnormalities and associations with epilepsy duration and cognition in patients with idiopathic generalized epilepsies.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R47",
+   "pmid": "41388441",
+   "doi": "10.1186/s11556-025-00392-9",
+   "year": 2025,
+   "title": "The impact of creatine supplementation associated with resistance training on muscular strength and lean tissue mass in the aged: a systematic review and meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "C"
+  },
+  {
+   "ref": "R48",
+   "pmid": "38625669",
+   "doi": "10.1186/s40798-024-00686-9",
+   "year": 2024,
+   "title": "Attenuating Muscle Damage Biomarkers and Muscle Soreness After an Exercise-Induced Muscle Damage with Branched-Chain Amino Acid (BCAA) Supplementation: A Systematic Review and Meta-analysis with Meta-regression.",
+   "study_type": "systematic_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R49",
+   "pmid": "33572884",
+   "doi": "10.3390/nu13020447",
+   "year": 2021,
+   "title": "Creatine in Health and Disease.",
+   "study_type": "systematic_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R50",
+   "pmid": "34025952",
+   "doi": "10.1016/j.csbj.2021.05.010",
+   "year": 2021,
+   "title": "Artificial intelligence in clinical care amidst COVID-19 pandemic: A systematic review.",
+   "study_type": "systematic_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R51",
+   "pmid": "33881460",
+   "doi": "10.1001/jamapsychiatry.2021.0380",
+   "year": 2021,
+   "title": "Association of Age, Antipsychotic Medication, and Symptom Severity in Schizophrenia With Proton Magnetic Resonance Spectroscopy Brain Glutamate Level: A Mega-analysis of Individual Participant-Level Data.",
+   "study_type": "meta_analysis",
+   "tier": "C"
+  },
+  {
+   "ref": "R52",
+   "pmid": "33383609",
+   "doi": "10.1016/j.nicl.2020.102436",
+   "year": 2020,
+   "title": "Meta-analysis of brain metabolite differences in HIV infection.",
+   "study_type": "meta_analysis",
+   "tier": "C"
+  },
+  {
+   "ref": "R53",
+   "pmid": "31838195",
+   "doi": "10.1016/j.neubiorev.2019.12.019",
+   "year": 2020,
+   "title": "Neurochemical profiles in hereditary ataxias: A meta-analysis of Magnetic Resonance Spectroscopy studies.",
+   "study_type": "meta_analysis",
+   "tier": "C"
+  },
+  {
+   "ref": "R54",
+   "pmid": "16581329",
+   "doi": "10.1016/j.amjcard.2005.12.010",
+   "year": 2006,
+   "title": "Statin safety: a systematic review.",
+   "study_type": "systematic_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R55",
+   "pmid": "36036746",
+   "doi": "10.1093/eurheartj/ehac494",
+   "year": 2022,
+   "title": "Empagliflozin in acute myocardial infarction: the EMMY trial.",
+   "study_type": "rct",
+   "tier": "C"
+  },
+  {
+   "ref": "R56",
+   "pmid": "22864465",
+   "doi": "10.1176/appi.ajp.2012.12010009",
+   "year": 2012,
+   "title": "A randomized, double-blind placebo-controlled trial of oral creatine monohydrate augmentation for enhanced response to a selective serotonin reuptake inhibitor in women with major depressive disorder.",
+   "study_type": "rct",
+   "tier": "C"
+  },
+  {
+   "ref": "R57",
+   "pmid": "32047862",
+   "doi": "10.1038/s41746-020-0221-y",
+   "year": 2020,
+   "title": "An overview of clinical decision support systems: benefits, risks, and strategies for success",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R58",
+   "pmid": "29065496",
+   "doi": "10.3390/foods6100092",
+   "year": 2017,
+   "title": "Curcumin: A Review of Its Effects on Human Health",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R59",
+   "pmid": "28344465",
+   "doi": "10.1016/j.jsps.2016.04.025",
+   "year": 2016,
+   "title": "The Pharmacological Potential of Rutin",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R60",
+   "pmid": "12493081",
+   "doi": "10.1079/bjn2002725",
+   "year": 2002,
+   "title": "The biological action of saponins in animal systems: a review",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R61",
+   "pmid": "42637388",
+   "doi": "10.1016/j.foodres.2026.120260",
+   "year": 2026,
+   "title": "Impact of protein succinylation and myofibrillar protein-lipid co-oxidation interactions on heterocyclic amine formation of thermally processed goose meat.",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R62",
+   "pmid": "37622654",
+   "doi": "10.1093/eurheartj/ehad191",
+   "year": 2023,
+   "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R63",
+   "pmid": "33264547",
+   "doi": "10.1056/nejmra2026131",
+   "year": 2020,
+   "title": "Cytokine Storm",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R64",
+   "pmid": "31504418",
+   "doi": "10.1093/eurheartj/ehz455",
+   "year": 2019,
+   "title": "2019 ESC/EAS Guidelines for the management of dyslipidaemias: lipid modification to reduce cardiovascular risk",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R65",
+   "pmid": "28059794",
+   "doi": "10.3233/jad-161088",
+   "year": 2017,
+   "title": "Oxidative Stress, Synaptic Dysfunction, and Alzheimer\u2019s Disease",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R66",
+   "pmid": "28458464",
+   "doi": "10.1007/s10811-016-0974-5",
+   "year": 2016,
+   "title": "Algae as nutritional and functional food sources: revisiting our understanding",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R67",
+   "pmid": "25694464",
+   "doi": "10.1093/eurheartj/ehv043",
+   "year": 2015,
+   "title": "Statin-associated muscle symptoms: impact on statin therapy\u2014European Atherosclerosis Society Consensus Panel Statement on Assessment, Aetiology and Management",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R68",
+   "pmid": "25200666",
+   "doi": "10.1007/s40279-014-0253-z",
+   "year": 2014,
+   "title": "Monitoring Training Load to Understand Fatigue in Athletes",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R69",
+   "pmid": "24587990",
+   "doi": "10.1155/2014/761264",
+   "year": 2014,
+   "title": "Oxidative Stress, Prooxidants, and Antioxidants: The Interplay",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R70",
+   "pmid": "23867520",
+   "doi": "10.1016/j.jamda.2013.05.021",
+   "year": 2013,
+   "title": "Evidence-Based Recommendations for Optimal Dietary Protein Intake in Older People: A Position Paper From the PROT-AGE Study Group",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R71",
+   "pmid": "21712404",
+   "doi": "10.1093/eurheartj/ehr158",
+   "year": 2011,
+   "title": "ESC/EAS Guidelines for the management of dyslipidaemias",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R72",
+   "pmid": "21873419",
+   "doi": "10.1093/eurheartj/ehr236",
+   "year": 2011,
+   "title": "ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R73",
+   "pmid": "19794405",
+   "doi": "10.1038/npp.2009.115",
+   "year": 2009,
+   "title": "Normal Development of Brain Circuits",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R74",
+   "pmid": "18483207",
+   "doi": "10.1161/circualtionaha.108.189742",
+   "year": 2008,
+   "title": "ACC/AHA/HRS 2008 Guidelines for Device-Based Therapy of Cardiac Rhythm Abnormalities",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R75",
+   "pmid": "18568016",
+   "doi": "10.1038/nrn2421",
+   "year": 2008,
+   "title": "Brain foods: the effects of nutrients on brain function",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R76",
+   "pmid": "10973852",
+   "doi": "10.1161/01.cir.102.10.1193",
+   "year": 2000,
+   "title": "ACC/AHA Guidelines for the Management of Patients With Unstable Angina and Non\u2013ST-Segment Elevation Myocardial Infarction: Executive Summary and Recommendations",
+   "study_type": "unclassified",
+   "tier": "C"
+  }
+ ]
+}

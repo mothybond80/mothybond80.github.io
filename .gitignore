@@ -1,0 +1,4 @@
+decide-plugin/engine/.venv/
+decide-plugin/engine/**/__pycache__/
+.decide/
+.pytest_cache/

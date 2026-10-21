@@ -1,0 +1,26 @@
+{
+ "counts": {
+  "verified": 52,
+  "unverifiable_offline": 2
+ },
+ "not_verified": [
+  {
+   "ref": "R57",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1038/s41746-020-0221-y did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R76",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1161/01.cir.102.10.1193 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  }
+ ]
+}
