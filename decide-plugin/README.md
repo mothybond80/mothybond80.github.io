@@ -44,7 +44,7 @@ From the repository root (this repo is also a plugin marketplace):
 
 or for local development: `claude --plugin-dir /path/to/decide-plugin`.
 
-Requirements: python3 >= 3.11 on PATH; outbound HTTPS to
+Requirements: python3 >= 3.9 on PATH (the Mac mini system Python 3.9.6 works); outbound HTTPS to
 `eutils.ncbi.nlm.nih.gov`, `api.openalex.org`, `api.crossref.org`,
 `www.ebi.ac.uk` (and `api.scite.ai` for deep mode). Set `DECIDE_MAILTO` to a
 contact address so OpenAlex and Crossref put you in their polite pools.

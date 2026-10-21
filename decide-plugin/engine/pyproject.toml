@@ -3,7 +3,7 @@ name = "decide-engine"
 version = "0.1.0"
 description = "Evidence-to-Decision Engine: framing-blind literature retrieval, citation verification and evidence packs for Claude Code and Hermes"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 license = {text = "MIT"}
 dependencies = []
 

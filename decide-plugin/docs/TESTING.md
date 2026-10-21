@@ -12,8 +12,8 @@ instructed from the agent definitions in `agents/`; the plugin's own
 
 ## 1. Deterministic layer
 
-`cd engine && .venv/bin/python -m pytest -q` -> see the count at the bottom of
-this file. Covered: neutraliser, direction detection, PubMed XML parsing
+`cd engine && .venv/bin/python -m pytest -q` -> 37 passed (Python 3.13);
+offline pack build also verified under Python 3.9. Covered: neutraliser, direction detection, PubMed XML parsing
 (including retraction markers), classification, sample-size heuristic, dedupe,
 erratum handling (regression), reference-list overlap, title similarity,
 offline cache behaviour, end-to-end pack determinism and leak checks.
@@ -115,9 +115,33 @@ beyond them.
 Reference check: 77 citations, all present. Verification against pack
 metadata: see `run-redmeat/verification.json` summary in section 4.
 
-### Adversarial challenge
+### Adversarial challenge (isolated challenger agent, same packs)
 
-See section 4 (appended when the challenger runs completed).
+Creatine: **verdict_weakened**. Label kept; memory certainty lowered to very
+low; older-adult subgroup demoted. Found 2 unsupported statements and 1
+overstatement in the appraisal (R21 wrongly listed as post-2021; a rodent
+sentence conflating two R28 statements; "most consistent signal" too strong).
+All other effect sizes, n and CIs were quoted verbatim from pack abstracts;
+every [R#] existed and matched. Full text: `docs/examples/creatine-quick/challenge.md`.
+
+Red meat: **verdict_stands**. Found 6 mis-stated details, including a
+miscopied confidence interval (colon-cancer CI reported as CVD mortality) and
+a "moderate certainty" rating applied to an outcome the abstract did not rate.
+Recommended carrying the processed / unprocessed split in the headline. Full
+text: `docs/examples/red-meat-quick/challenge.md`.
+
+What this shows: the second isolated pass catches transcription and
+attribution errors that the first pass makes at a rate of roughly 2-6 per
+appraisal of 20-25 records. Verification by re-reading abstracts is not
+optional. What it does not show: whether a single challenger catches all such
+errors (nobody checked the challenger).
+
+### Production environment check (Mac mini, via Hermes, read-only)
+
+PubMed, OpenAlex, Crossref and Europe PMC all returned HTTP 200 from the Mac
+mini. Its system interpreter is Python 3.9.6; the engine was therefore tested
+under Python 3.9.25 as well as 3.13 (pack build identical). `requires-python`
+is 3.9.
 
 ## 3. What was NOT tested
 

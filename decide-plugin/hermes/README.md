@@ -5,7 +5,7 @@ Two supported routes, both using the same engine code as the Claude Code plugin.
 ## Route A (recommended, zero install): Hermes skill + terminal tool
 Copy or symlink `hermes/` to `~/.hermes/skills/decide/` so `SKILL.md` is at
 `~/.hermes/skills/decide/SKILL.md`. Hermes calls the engine through its
-terminal tool. Requires only python3 >= 3.11 and outbound HTTPS to the four
+terminal tool. Requires only python3 >= 3.9 and outbound HTTPS to the four
 APIs (PubMed, OpenAlex, Crossref, Europe PMC).
 
 ```bash
