@@ -46,7 +46,7 @@ user question ("Isn't X actually good for Y?")
 
 | Path | Role | Runs where |
 |---|---|---|
-| `engine/decide_engine/` | stdlib-only Python: question, sources, fetch, classify, verify, overlap, pack, cli | anywhere with python3 >= 3.11 |
+| `engine/decide_engine/` | stdlib-only Python: question, sources, fetch, classify, verify, overlap, pack, cli | anywhere with python3 >= 3.9 |
 | `bin/decide-engine` | launcher (`python3 -I`, no install) | Claude Code (plugin bin/ on PATH), Hermes terminal |
 | `skills/decide/SKILL.md` | orchestrator: `/decide quick|deep|challenge` | Claude Code main context |
 | `agents/evidence-appraiser.md` | isolated appraisal | Claude Code subagent (omitClaudeMd, no web tools, no Agent) |
