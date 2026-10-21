@@ -1,0 +1,769 @@
+{
+ "engine_version": "0.1.0",
+ "built_at": "2026-10-21T23:31:35Z",
+ "mode": "quick",
+ "question": {
+  "neutral": "What is the effect of red meat consumption on longevity mortality, and in which direction?",
+  "exposure": "red meat consumption",
+  "outcome": "longevity mortality",
+  "population": null,
+  "comparator": null,
+  "domains": [
+   "nutrition",
+   "medicine"
+  ],
+  "framing_hash": "3e18fdc2362ab6e2"
+ },
+ "searches": [
+  {
+   "db": "pubmed",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=25&retmode=json&sort=relevance&term=%28%22red%20meat%22%20OR%20%22unprocessed%20meat%22%20OR%20%22processed%20meat%22%20OR%20%22meat%20consumption%22%29%20AND%20%28mortality%20OR%20%22all-cause%20mortality%22%20OR%20longevity%20OR%20%22life%20expectancy%22%29%20AND%20%28systematic%5Bsb%5D%20OR%20meta-analysis%5Bpt%5D%20OR%20%22systematic%20review%22%5Bpt%5D%20OR%20umbrella%20review%5Btiab%5D%29",
+   "query": "(\"red meat\" OR \"unprocessed meat\" OR \"processed meat\" OR \"meat consumption\") AND (mortality OR \"all-cause mortality\" OR longevity OR \"life expectancy\") AND (systematic[sb] OR meta-analysis[pt] OR \"systematic review\"[pt] OR umbrella review[tiab])",
+   "query_translation": "(\"red meat\"[All Fields] OR \"unprocessed meat\"[All Fields] OR \"processed meat\"[All Fields] OR \"meat consumption\"[All Fields]) AND (\"mortality\"[MeSH Terms] OR \"mortality\"[All Fields] OR \"all-cause mortality\"[All Fields] OR \"longevity\"[MeSH Terms] OR \"life expectancy\"[All Fields]) AND (\"systematic\"[Filter] OR \"meta-analysis\"[Publication Type] OR \"systematic review\"[Publication Type] OR \"umbrella review\"[Title/Abstract])",
+   "count": 80,
+   "returned": 25,
+   "label": "pubmed_reviews"
+  },
+  {
+   "db": "pubmed",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=25&retmode=json&sort=relevance&term=%28%22red%20meat%22%20OR%20%22unprocessed%20meat%22%20OR%20%22processed%20meat%22%20OR%20%22meat%20consumption%22%29%20AND%20%28mortality%20OR%20%22all-cause%20mortality%22%20OR%20longevity%20OR%20%22life%20expectancy%22%29%20AND%20%28randomized%20controlled%20trial%5Bpt%5D%20OR%20controlled%20clinical%20trial%5Bpt%5D%20OR%20randomi%2A%5Btiab%5D%29",
+   "query": "(\"red meat\" OR \"unprocessed meat\" OR \"processed meat\" OR \"meat consumption\") AND (mortality OR \"all-cause mortality\" OR longevity OR \"life expectancy\") AND (randomized controlled trial[pt] OR controlled clinical trial[pt] OR randomi*[tiab])",
+   "query_translation": "(\"red meat\"[All Fields] OR \"unprocessed meat\"[All Fields] OR \"processed meat\"[All Fields] OR \"meat consumption\"[All Fields]) AND (\"mortality\"[MeSH Terms] OR \"mortality\"[All Fields] OR \"all-cause mortality\"[All Fields] OR \"longevity\"[MeSH Terms] OR \"life expectancy\"[All Fields]) AND (\"randomized controlled trial\"[Publication Type] OR \"controlled clinical trial\"[Publication Type] OR \"randomi*\"[Title/Abstract])",
+   "count": 59,
+   "returned": 25,
+   "label": "pubmed_trials"
+  },
+  {
+   "db": "pubmed",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?datetype=pdat&db=pubmed&mindate=2023%2F01%2F01&retmax=15&retmode=json&sort=pub_date&term=%28%22red%20meat%22%20OR%20%22unprocessed%20meat%22%20OR%20%22processed%20meat%22%20OR%20%22meat%20consumption%22%29%20AND%20%28mortality%20OR%20%22all-cause%20mortality%22%20OR%20longevity%20OR%20%22life%20expectancy%22%29",
+   "query": "(\"red meat\" OR \"unprocessed meat\" OR \"processed meat\" OR \"meat consumption\") AND (mortality OR \"all-cause mortality\" OR longevity OR \"life expectancy\")",
+   "query_translation": "(\"red meat\"[All Fields] OR \"unprocessed meat\"[All Fields] OR \"processed meat\"[All Fields] OR \"meat consumption\"[All Fields]) AND (\"mortality\"[MeSH Terms] OR \"mortality\"[All Fields] OR \"all-cause mortality\"[All Fields] OR \"longevity\"[MeSH Terms] OR \"life expectancy\"[All Fields])",
+   "count": 981,
+   "returned": 15,
+   "label": "pubmed_recent"
+  },
+  {
+   "db": "openalex",
+   "url": "https://api.openalex.org/works?mailto=unknown%40example.org&per-page=20&search=red%20meat%20consumption%20longevity%20mortality&select=id%2Cdoi%2Ctitle%2Cdisplay_name%2Cpublication_year%2Ctype%2Ccited_by_count%2Cis_retracted%2Cauthorships%2Cprimary_location%2Copen_access%2Creferenced_works%2Cabstract_inverted_index%2Cids&sort=cited_by_count%3Adesc",
+   "query": "red meat consumption longevity mortality",
+   "filter": null,
+   "count": 8026,
+   "returned": 20,
+   "label": "openalex_most_cited"
+  }
+ ],
+ "errors": [],
+ "n_records": 77,
+ "relevance_tiers": {
+  "A": 19,
+  "B": 33,
+  "C": 25
+ },
+ "study_type_counts": {
+  "systematic_review": 18,
+  "meta_analysis": 13,
+  "rct": 5,
+  "narrative_review": 12,
+  "unclassified": 25,
+  "cross_sectional": 3,
+  "cohort": 1
+ },
+ "retracted_or_flagged": [],
+ "overlap_warnings": [],
+ "pack_hash": "627b004412c685a22a035d585df4f205229c175a868062f0291b4c01fff9a29a",
+ "records_index": [
+  {
+   "ref": "R1",
+   "pmid": "40122387",
+   "doi": "10.1016/j.tjnut.2025.03.021",
+   "year": 2025,
+   "title": "Umbrella Review of Systematic Reviews and Meta-Analyses on Consumption of Different Food Groups and Risk of Type 2 Diabetes Mellitus and Metabolic Syndrome.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R2",
+   "pmid": "40914511",
+   "doi": "10.1016/j.tjnut.2025.08.030",
+   "year": 2025,
+   "title": "Processed Meat Health Risks: Pathways and Dietary Solutions.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R3",
+   "pmid": "38794673",
+   "doi": "10.3390/nu16101435",
+   "year": 2024,
+   "title": "Pulse Consumption and Health Outcomes: A Scoping Review.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R4",
+   "pmid": "35491892",
+   "doi": "10.1080/10408398.2022.2058461",
+   "year": 2023,
+   "title": "Associations of the consumption of unprocessed red meat and processed meat with the incidence of cardiovascular disease and mortality, and the dose-response relationship: A systematic review and meta-analysis of cohort studies.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R5",
+   "pmid": "36545687",
+   "doi": "10.1017/s0007114522003415",
+   "year": 2023,
+   "title": "Red/processed meat consumption and non-cancer-related outcomes in humans: umbrella review.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R6",
+   "pmid": "38187786",
+   "doi": "10.29219/fnr.v67.9543",
+   "year": 2023,
+   "title": "White meat consumption and risk of cardiovascular disease and type 2 diabetes: a systematic review and meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R7",
+   "pmid": "36216940",
+   "doi": "10.1038/s41591-022-01968-z",
+   "year": 2022,
+   "title": "Health effects associated with consumption of unprocessed red meat: a Burden of Proof study.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R8",
+   "pmid": "33838606",
+   "doi": "10.1016/j.foodchem.2021.129697",
+   "year": 2021,
+   "title": "Red and processed meat consumption and cancer outcomes: Umbrella review.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R9",
+   "pmid": "29489910",
+   "doi": "10.1371/journal.pone.0193533",
+   "year": 2018,
+   "title": "Systematic review of palm oil consumption and the risk of cardiovascular disease.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R10",
+   "pmid": "28792013",
+   "doi": "10.1038/ejcn.2017.117",
+   "year": 2018,
+   "title": "A summary of meat intakes and health burdens.",
+   "study_type": "systematic_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R11",
+   "pmid": "24932617",
+   "doi": "10.1017/s000711451400124x",
+   "year": 2014,
+   "title": "Association between total, processed, red and white meat consumption and all-cause, CVD and IHD mortality: a meta-analysis of cohort studies.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R12",
+   "pmid": "24148709",
+   "doi": "10.1093/aje/kwt261",
+   "year": 2014,
+   "title": "Red meat and processed meat consumption and all-cause mortality: a meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "A"
+  },
+  {
+   "ref": "R13",
+   "pmid": "31842617",
+   "doi": "10.1080/01635581.2019.1703837",
+   "year": 2020,
+   "title": "On Meat, Butter, and Fudge.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R14",
+   "pmid": "31559413",
+   "doi": "10.1093/ajcn/nqz222",
+   "year": 2019,
+   "title": "Syringol metabolites as new biomarkers for smoked meat intake.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R15",
+   "pmid": "21527577",
+   "doi": "10.1158/1055-9965.epi-11-0048",
+   "year": 2011,
+   "title": "Urinary biomarkers of meat consumption.",
+   "study_type": "rct",
+   "tier": "A"
+  },
+  {
+   "ref": "R16",
+   "pmid": "41370089",
+   "doi": "10.1093/nutrit/nuaf234",
+   "year": 2026,
+   "title": "Meat Intake in Relation to Metabolomic Signatures, Gut Microbiome, and Cardiovascular Disease Risk: A Narrative Review.",
+   "study_type": "narrative_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R17",
+   "pmid": "39928063",
+   "doi": "10.1007/s11886-025-02201-2",
+   "year": 2025,
+   "title": "Red Meat Consumption and Hypertension: An Updated Review.",
+   "study_type": "narrative_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R18",
+   "pmid": "26621069",
+   "doi": "10.1017/s0029665115004255",
+   "year": 2016,
+   "title": "Processed meat: the real villain?",
+   "study_type": "narrative_review",
+   "tier": "A"
+  },
+  {
+   "ref": "R19",
+   "pmid": "42752699",
+   "doi": "10.1007/s00394-026-04093-6",
+   "year": 2026,
+   "title": "Health co-benefits of sustainable dietary transitions to reduced red and processed meat intake in the United Kingdom: a modelling study.",
+   "study_type": "unclassified",
+   "tier": "A"
+  },
+  {
+   "ref": "R20",
+   "pmid": "40010692",
+   "doi": "10.1016/j.ajcnut.2025.02.021",
+   "year": 2025,
+   "title": "Dietary patterns and colorectal cancer risk: Global Cancer Update Programme (CUP Global) systematic literature review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R21",
+   "pmid": "40094942",
+   "doi": "10.1177/02601060251314575",
+   "year": 2025,
+   "title": "The protein paradox, carnivore diet & hypertrophy versus longevity. Short term nutrition and hypertrophy versus longevity.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R22",
+   "pmid": "39489901",
+   "doi": "10.1016/j.ajcnut.2024.10.003",
+   "year": 2025,
+   "title": "Adulthood dietary and lifestyle patterns and risk of breast cancer: Global Cancer Update Programme (CUP Global) systematic literature review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R23",
+   "pmid": "40317134",
+   "doi": "10.1093/jnci/djaf098",
+   "year": 2025,
+   "title": "Postdiagnosis dietary and lifestyle factors and mortality outcomes among colorectal cancer patients: a meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R24",
+   "pmid": "40779285",
+   "doi": "10.1007/s13668-025-00688-3",
+   "year": 2025,
+   "title": "Cancer Risk and Mortality Following Substitution of Animal Foods with Plant Foods: A Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R25",
+   "pmid": "38748667",
+   "doi": "10.1371/journal.pone.0300711",
+   "year": 2024,
+   "title": "Cardiovascular health and cancer risk associated with plant based diets: An umbrella review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R26",
+   "pmid": "38692645",
+   "doi": "10.1002/ijc.34906",
+   "year": 2024,
+   "title": "Post-diagnosis dietary factors, supplement use and colorectal cancer prognosis: A Global Cancer Update Programme (CUP Global) systematic literature review and meta-analysis.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R27",
+   "pmid": "37968628",
+   "doi": "10.1186/s12916-023-03093-1",
+   "year": 2023,
+   "title": "Substitution of animal-based with plant-based foods on cardiometabolic health and all-cause mortality: a systematic review and meta-analysis of prospective studies.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R28",
+   "pmid": "36235610",
+   "doi": "10.3390/nu14193954",
+   "year": 2022,
+   "title": "The Link between Food Environment and Colorectal Cancer: A Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R29",
+   "pmid": "35483315",
+   "doi": "10.1016/j.meatsci.2022.108830",
+   "year": 2022,
+   "title": "The potential role of beef and nutrients found in beef on outcomes of wellbeing in healthy adults 50\u00a0years of age and older: A systematic review of randomized controlled trials.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R30",
+   "pmid": "34463743",
+   "doi": "10.1001/jamanetworkopen.2021.22277",
+   "year": 2021,
+   "title": "Evaluation of Dietary Patterns and All-Cause Mortality: A Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R31",
+   "pmid": "34684583",
+   "doi": "10.3390/nu13103582",
+   "year": 2021,
+   "title": "Evidence Update on the Relationship between Diet and the Most Common Cancers from the European Prospective Investigation into Cancer and Nutrition (EPIC) Study: A Systematic Review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R32",
+   "pmid": "34957192",
+   "doi": "10.3389/fnut.2021.801228",
+   "year": 2021,
+   "title": "Dietary Salt Intake and Gastric Cancer Risk: A Systematic Review and Meta-Analysis.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R33",
+   "pmid": "32562735",
+   "doi": "10.1016/j.jacc.2020.05.077",
+   "year": 2020,
+   "title": "Saturated Fats and Health: A\u00a0Reassessment and Proposal for Food-Based Recommendations: JACC State-of-the-Art Review.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R34",
+   "pmid": "28935150",
+   "doi": "10.1016/j.nut.2017.06.008",
+   "year": 2017,
+   "title": "Mediterranean diet and colorectal cancer: A systematic review.",
+   "study_type": "systematic_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R35",
+   "pmid": "28446499",
+   "doi": "10.3945/ajcn.117.153148",
+   "year": 2017,
+   "title": "Food groups and risk of all-cause mortality: a systematic review and meta-analysis of prospective studies.",
+   "study_type": "meta_analysis",
+   "tier": "B"
+  },
+  {
+   "ref": "R36",
+   "pmid": "29763272",
+   "doi": null,
+   "year": 2018,
+   "title": "Colorectal Cancer Screening and Prevention.",
+   "study_type": "rct",
+   "tier": "B"
+  },
+  {
+   "ref": "R37",
+   "pmid": "21232139",
+   "doi": "10.1186/1471-2431-11-4",
+   "year": 2011,
+   "title": "Complementary feeding: a Global Network cluster randomized controlled trial.",
+   "study_type": "rct",
+   "tier": "B"
+  },
+  {
+   "ref": "R38",
+   "pmid": "42828085",
+   "doi": "10.1002/jgh3.70477",
+   "year": 2026,
+   "title": "Inverse Association Between Regional Availability of Board-Certified Fellows of the Japan Gastroenterological Endoscopy Society and Colorectal Cancer Mortality in Japan: An Ecological Analysis.",
+   "study_type": "cross_sectional",
+   "tier": "B"
+  },
+  {
+   "ref": "R39",
+   "pmid": "42797055",
+   "doi": "10.3390/nu18183072",
+   "year": 2026,
+   "title": "Late-Life Dietary Patterns and Subsequent Survival Among Adults Aged 90 Years or Older in the Sardinian Blue Zone.",
+   "study_type": "cross_sectional",
+   "tier": "B"
+  },
+  {
+   "ref": "R40",
+   "pmid": "42797026",
+   "doi": "10.3390/nu18183043",
+   "year": 2026,
+   "title": "SuboptimalDietaryPatterns and Estimated Cardiovascular Disease Mortality Burden in China: A Repeated Cross-Sectional Comparative Risk Assessment.",
+   "study_type": "cross_sectional",
+   "tier": "B"
+  },
+  {
+   "ref": "R41",
+   "pmid": "42557022",
+   "doi": "10.5551/jat.rv22057",
+   "year": 2026,
+   "title": "Diet and Atherosclerosis Prevention: Rethinking the Significance of \"The Japan Diet\".",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R42",
+   "pmid": "42684538",
+   "doi": "10.1007/s13668-026-00795-9",
+   "year": 2026,
+   "title": "Nutritional Modulation of the Gut Microbiome-Metabolite Axis in Cardiovascular Disease: From Dietary Patterns to Cardiovascular Risk.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R43",
+   "pmid": "37265101",
+   "doi": "10.1097/mco.0000000000000947",
+   "year": 2023,
+   "title": "Physical activity and nutrition in chronic kidney disease.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R44",
+   "pmid": "31631676",
+   "doi": "10.1080/10408398.2019.1676698",
+   "year": 2020,
+   "title": "Nutrition and longevity - From mechanisms to uncertainties.",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R45",
+   "pmid": "30947337",
+   "doi": "10.1093/advances/nmy104",
+   "year": 2019,
+   "title": "Perspective: Refined Grains and Health: Genuine Risk, or Guilt by Association?",
+   "study_type": "narrative_review",
+   "tier": "B"
+  },
+  {
+   "ref": "R46",
+   "pmid": "42859773",
+   "doi": "10.7759/cureus.117727",
+   "year": 2026,
+   "title": "Trends in Modifiable Risk Factors Contributing to Ischemic Heart Disease Mortality in Afghanistan: Estimates From the Global Burden of Disease Study 2023 (1999-2023).",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R47",
+   "pmid": "42850022",
+   "doi": "10.1136/bmjgh-2026-023665",
+   "year": 2026,
+   "title": "Age-sex-income triad disparities in diet-attributable diabetes: a GBD 2023 analysis reveals East Asia and Pacific region's decoupling phenomenon and cost-effective solutions.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R48",
+   "pmid": "42641808",
+   "doi": "10.1016/j.diabres.2026.113521",
+   "year": 2026,
+   "title": "Global burden of type 2 diabetes attributable to dietary risks in working-age adults aged 25-64 years: insights from the GBD 2023 study.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R49",
+   "pmid": "42815353",
+   "doi": "10.1016/j.clinsp.2026.101166",
+   "year": 2026,
+   "title": "Comparative analysis of female breast cancer burden in China along the global sociodemographic gradient: risk attribution, decomposition, and age-period-cohort evidence from GBD 2021.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R50",
+   "pmid": "42812162",
+   "doi": "10.3389/fonc.2026.1924548",
+   "year": 2026,
+   "title": "Epidemiological trends and risk factors of early-onset colorectal cancer in the founding BRICS countries, 1990-2023, with projections to 2050.",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R51",
+   "pmid": "31959642",
+   "doi": "10.2337/dci19-0063",
+   "year": 2020,
+   "title": "Red and Processed Meats and Health Risks: How Strong Is the Evidence?",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R52",
+   "pmid": "31616522",
+   "doi": "10.5114/pg.2018.81072",
+   "year": 2019,
+   "title": "Epidemiology of colorectal cancer: incidence, mortality, survival, and risk factors",
+   "study_type": "unclassified",
+   "tier": "B"
+  },
+  {
+   "ref": "R53",
+   "pmid": "36154543",
+   "doi": "10.1080/10408398.2022.2123778",
+   "year": 2024,
+   "title": "Red and processed meat intakes and cardiovascular disease and type 2 diabetes mellitus: An umbrella systematic review and assessment of causal relations using Bradford Hill's criteria.",
+   "study_type": "systematic_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R54",
+   "pmid": "28338764",
+   "doi": "10.1093/ije/dyw319",
+   "year": 2016,
+   "title": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality\u2014a systematic review and dose-response meta-analysis of prospective studies",
+   "study_type": "meta_analysis",
+   "tier": "C"
+  },
+  {
+   "ref": "R55",
+   "pmid": "26017245",
+   "doi": "10.1016/j.meatsci.2015.05.019",
+   "year": 2015,
+   "title": "Red meat consumption and ischemic heart disease. A systematic literature review.",
+   "study_type": "systematic_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R56",
+   "pmid": "42882897",
+   "doi": "10.3390/cancers18193203",
+   "year": 2026,
+   "title": "Consumption of Processed Meat and Unprocessed Red Meat and Risk of Bladder Cancer: A Pooled Analysis of 30 Cohort Studies.",
+   "study_type": "cohort",
+   "tier": "C"
+  },
+  {
+   "ref": "R57",
+   "pmid": "37800340",
+   "doi": "10.1017/s1368980023001933",
+   "year": 2023,
+   "title": "Dietary consumption of beef and red meat: a scoping review and evidence map on cognitive outcomes across the lifespan.",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R58",
+   "pmid": "29350557",
+   "doi": "10.1146/annurev-food-111317-095850",
+   "year": 2018,
+   "title": "Omega-3 Polyunsaturated Fatty Acids and Their Health Benefits",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R59",
+   "pmid": "28388917",
+   "doi": "10.1186/s12967-017-1175-y",
+   "year": 2017,
+   "title": "Influence of diet on the gut microbiome and implications for human health",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R60",
+   "pmid": "22166184",
+   "doi": "10.1017/s1368980011002515",
+   "year": 2011,
+   "title": "Mediterranean diet pyramid today. Science and cultural updates",
+   "study_type": "narrative_review",
+   "tier": "C"
+  },
+  {
+   "ref": "R61",
+   "pmid": "42888021",
+   "doi": "10.1093/ije/dyag224",
+   "year": 2026,
+   "title": "Processed meat, unprocessed red meat, poultry, seafood, and egg intake and stomach cancer risk: a pooled analysis of 20 cohorts.",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R62",
+   "pmid": "42532308",
+   "doi": "10.1016/j.clnesp.2026.103629",
+   "year": 2026,
+   "title": "Processed-meat-attributable ischemic stroke burden, 1990-2023: A Global Burden of Disease 2023 analysis.",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R63",
+   "pmid": "38762324",
+   "doi": "10.1016/s0140-6736(24)00933-4",
+   "year": 2024,
+   "title": "Global burden and strength of evidence for 88 risk factors in 204 countries and 811 subnational locations, 1990\u20132021: a systematic analysis for the Global Burden of Disease Study 2021",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R64",
+   "pmid": "35835758",
+   "doi": "10.1038/s41572-022-00376-4",
+   "year": 2022,
+   "title": "Multimorbidity",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R65",
+   "pmid": "33069327",
+   "doi": "10.1016/s0140-6736(20)30752-2",
+   "year": 2020,
+   "title": "Global burden of 87 risk factors in 204 countries and territories, 1990\u20132019: a systematic analysis for the Global Burden of Disease Study 2019",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R66",
+   "pmid": "29731617",
+   "doi": "10.2147/cia.s158513",
+   "year": 2018,
+   "title": "Oxidative stress, aging, and diseases",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R67",
+   "pmid": "28819546",
+   "doi": "10.1155/2017/8416763",
+   "year": 2017,
+   "title": "Oxidative Stress: Harms and Benefits for Human Health",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R68",
+   "pmid": "29692469",
+   "doi": "10.1093/jmammal/gyw078",
+   "year": 2016,
+   "title": "2016 Guidelines of the American Society of Mammalogists for the use of wild mammals in research and education:",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R69",
+   "pmid": "27594540",
+   "doi": "10.1016/j.atherosclerosis.2016.08.018",
+   "year": 2016,
+   "title": "2016 ESC/EAS Guidelines for the Management of Dyslipidaemias",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R70",
+   "pmid": "26976915",
+   "doi": "10.1161/circulationaha.115.020406",
+   "year": 2016,
+   "title": "Shared Risk Factors in Cardiovascular Disease and Cancer",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R71",
+   "pmid": "24352519",
+   "doi": "10.1161/01.cir.0000441139.02102.80",
+   "year": 2013,
+   "title": "Heart Disease and Stroke Statistics\u20142014 Update",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R72",
+   "pmid": "23239837",
+   "doi": "10.1161/cir.0b013e31828124ad",
+   "year": 2012,
+   "title": "Heart Disease and Stroke Statistics\u20142013 Update",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R73",
+   "pmid": "22539238",
+   "doi": "10.3322/caac.21142",
+   "year": 2012,
+   "title": "Nutrition and physical activity guidelines for cancer survivors",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R74",
+   "pmid": "21712404",
+   "doi": "10.1093/eurheartj/ehr158",
+   "year": 2011,
+   "title": "ESC/EAS Guidelines for the management of dyslipidaemias",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R75",
+   "pmid": null,
+   "doi": "10.1644/10-mamm-f-355.1",
+   "year": 2011,
+   "title": "Guidelines of the American Society of Mammalogists for the use of wild mammals in research",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R76",
+   "pmid": "9155216",
+   "doi": "10.1111/j.1753-4887.1997.tb01593.x",
+   "year": 2009,
+   "title": "The Nutrition Transition: New Trends in the Global Diet",
+   "study_type": "unclassified",
+   "tier": "C"
+  },
+  {
+   "ref": "R77",
+   "pmid": null,
+   "doi": "10.1034/j.1600-0706.2000.880110.x",
+   "year": 2000,
+   "title": "Trade\u2010offs in evolutionary immunology: just what is the cost of immunity?",
+   "study_type": "unclassified",
+   "tier": "C"
+  }
+ ]
+}

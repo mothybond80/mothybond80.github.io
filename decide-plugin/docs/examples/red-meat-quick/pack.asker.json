@@ -1,0 +1,9 @@
+{
+ "raw_question": "Isn't red meat actually good for longevity?",
+ "asker_direction": "benefit",
+ "framing_hash": "3e18fdc2362ab6e2",
+ "parser_notes": [
+  "removed framing matching /^\\s*(isn'?t|aren'?t|doesn'?t|don'?t|wasn'?t|won'?t|couldn'?t|shouldn'?t)\\s+(it\\s+|that\\s+)?(true\\s+that\\s+|the case that\\s+)?/",
+  "removed framing matching /\\b(actually|really|truly|honestly|in fact|after all|just|simply)\\b/"
+ ]
+}

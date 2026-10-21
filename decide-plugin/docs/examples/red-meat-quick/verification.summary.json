@@ -1,0 +1,186 @@
+{
+ "counts": {
+  "verified": 57,
+  "unverifiable_offline": 20
+ },
+ "not_verified": [
+  {
+   "ref": "R52",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.5114/pg.2018.81072 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R54",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1093/ije/dyw319 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R58",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1146/annurev-food-111317-095850 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R59",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1186/s12967-017-1175-y did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R60",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1017/s1368980011002515 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R63",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1016/s0140-6736(24)00933-4 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R64",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1038/s41572-022-00376-4 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R65",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1016/s0140-6736(20)30752-2 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R66",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.2147/cia.s158513 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R67",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1155/2017/8416763 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R68",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1093/jmammal/gyw078 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R69",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1016/j.atherosclerosis.2016.08.018 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R70",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1161/circulationaha.115.020406 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R71",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1161/01.cir.0000441139.02102.80 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R72",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1161/cir.0b013e31828124ad did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R73",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.3322/caac.21142 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R74",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1093/eurheartj/ehr158 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R75",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "DOI 10.1644/10-mamm-f-355.1 did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R76",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "PubMed lookup not possible (offline / blocked)",
+    "DOI 10.1111/j.1753-4887.1997.tb01593.x did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  },
+  {
+   "ref": "R77",
+   "verdict": "unverifiable_offline",
+   "checks": [
+    "DOI 10.1034/j.1600-0706.2000.880110.x did not resolve in Crossref or OpenAlex",
+    "network unavailable; could not resolve identifiers"
+   ]
+  }
+ ]
+}

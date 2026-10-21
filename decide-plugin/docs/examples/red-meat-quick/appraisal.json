@@ -1,0 +1,800 @@
+{
+ "neutral_question": "What is the effect of red meat consumption on longevity mortality, and in which direction?",
+ "coverage_limits": {
+  "searched": [
+   "PubMed reviews filter: 80 hits, 25 returned (relevance sort)",
+   "PubMed trials filter: 59 hits, 25 returned (relevance sort)",
+   "PubMed any design since 2023-01-01: 981 hits, only 15 returned (date sort)",
+   "OpenAlex 'red meat consumption longevity mortality': 8026 hits, 20 returned (citation sort; mostly off-topic highly-cited papers)"
+  ],
+  "not_searched_or_incomplete": [
+   "Europe PMC and Semantic Scholar queries are listed in search_strategy but no search is logged for them",
+   "OpenAlex enrichment for 15 DOIs was blocked, so citation counts and OA status are missing for most PubMed records",
+   "No full text was available for any record; every extraction below is abstract-only",
+   "No Mendelian randomisation study and no large individual cohort (as a primary record) is in the pack; cohorts are only represented inside meta-analyses",
+   "The NutriRECS 2019 Annals of Internal Medicine syntheses that R13 and R51 criticise are not themselves in the pack, so their estimates cannot be weighed directly"
+  ]
+ },
+ "evidence_summary": "The pack contains no randomised trial or Mendelian randomisation study with mortality as an outcome; all mortality evidence is from meta-analyses of prospective cohorts (abstract-only). The most recent dose-response meta-analysis of food groups and all-cause mortality (R35, Schwingshackl 2017) reports RR 1.10 (95% CI 1.04-1.18) per daily serving of red meat and RR 1.23 (1.12-1.36) per serving of processed meat; the earlier meta-analysis it builds on (R12, Larsson 2014; 9 prospective studies) found processed meat RR 1.23 (1.17-1.28) and total red meat RR 1.29 (1.24-1.35) for highest vs lowest intake, but unprocessed red meat RR 1.10 (0.98-1.22), not statistically significant. A 2023 umbrella review (R5) reports processed meat RR 1.15 (1.11-1.19) per 50 g/day for all-cause mortality, and a 2023 substitution meta-analysis (R27) with GRADE-rated moderate certainty found lower all-cause mortality when red meat is replaced by nuts (SHR 0.93, 0.91-0.95; 9 cohorts) or whole grains (0.96, 0.95-0.98) and processed meat by nuts (0.79, 0.71-0.88) or legumes (0.91, 0.85-0.98). Pointing the other way, a Burden of Proof meta-regression (R7) rated the unprocessed-red-meat evidence weak with a 95% uncertainty interval for minimum-risk intake spanning 0-200 g/day, meta-analyses of cardiovascular mortality are null or inconsistent (R4, R11, R53, R55), an Asian-country summary found inverse associations (R10), and a post-diagnosis colorectal cancer meta-analysis found lower all-cause mortality with unprocessed red meat (R23; RR 0.74, 0.57-0.94). Overall the evidence consistently associates processed meat with modestly higher all-cause mortality, while the association for unprocessed red meat is small, inconsistent and vulnerable to confounding; no absolute risk differences are reported in any abstract.",
+ "verdict": "suggests_with_uncertainty",
+ "verdict_refers_to": "Higher red meat consumption (total red meat, including processed meat) is associated with higher all-cause mortality, i.e. shorter longevity, compared with lower consumption",
+ "verdict_notes": "The direction is harm for total and processed red meat, with a small relative magnitude (roughly 10-30% relative, absolute not reported). For unprocessed red meat alone the evidence is inconsistent and would be rated 'mixed' with very low certainty. All evidence is observational; nothing in the pack establishes causation.",
+ "outcomes": [
+  {
+   "outcome": "All-cause mortality - total/unprocessed red meat",
+   "direction": "harm",
+   "magnitude": "R35: RR 1.10 (95% CI 1.04-1.18) per daily serving of red meat (linear dose-response). R12: highest vs lowest, total red meat RR 1.29 (1.24-1.35; 5 studies); unprocessed red meat RR 1.10 (0.98-1.22; 6 studies), not significant. R11: no association for total meat with all-cause mortality (numbers not reported in abstract). R27 substitution: red meat replaced by nuts SHR 0.93 (0.91-0.95), by whole grains 0.96 (0.95-0.98). Absolute risk not reported in any abstract.",
+   "certainty": "very_low",
+   "grade_domains": {
+    "risk_of_bias": {
+     "judgment": "serious",
+     "reason": "Self-reported FFQ exposure and residual confounding by healthy-user lifestyle are acknowledged in R11, R18 and R7; no RCT or MR evidence."
+    },
+    "inconsistency": {
+     "judgment": "serious",
+     "reason": "Unprocessed red meat non-significant in R12 and R11 but significant in R35; high heterogeneity reported in R11; inverse associations in low-meat Asian countries in R10; R7 uncertainty interval for minimum-risk intake spans 0-200 g/day."
+    },
+    "indirectness": {
+     "judgment": "not serious",
+     "reason": "Outcome is all-cause mortality in general adult cohorts; the question names no specific population."
+    },
+    "imprecision": {
+     "judgment": "serious",
+     "reason": "The unprocessed red meat CI in R12 crosses 1.0; R35 CI is narrow but the point estimate is close to null."
+    },
+    "publication_bias": {
+     "judgment": "undetected",
+     "reason": "No funnel-plot or small-study assessment is reported in any abstract; cannot be assessed from abstracts."
+    }
+   },
+   "key_refs": [
+    "R35",
+    "R12",
+    "R11",
+    "R27",
+    "R7",
+    "R5"
+   ],
+   "evidence_type": "observational",
+   "abstract_only": true
+  },
+  {
+   "outcome": "All-cause mortality - processed meat",
+   "direction": "harm",
+   "magnitude": "R35: RR 1.23 (1.12-1.36) per daily serving. R12: RR 1.23 (1.17-1.28) highest vs lowest (6 studies), nonlinear dose-response significant. R11: 22% higher risk in highest category (13 cohorts, 1,674,272 individuals). R5 umbrella: RR 1.15 (1.11-1.19) per 50 g/day. R27 substitution: processed meat replaced by nuts SHR 0.79 (0.71-0.88), legumes 0.91 (0.85-0.98), 9 cohorts each. Absolute risk not reported.",
+   "certainty": "low",
+   "grade_domains": {
+    "risk_of_bias": {
+     "judgment": "serious",
+     "reason": "Same observational design limits; R18 notes low consumers tend to have healthier lifestyles overall."
+    },
+    "inconsistency": {
+     "judgment": "not serious",
+     "reason": "Direction and size (RR about 1.15-1.23) are consistent across R5, R11, R12, R35 and the substitution analyses in R27."
+    },
+    "indirectness": {
+     "judgment": "not serious",
+     "reason": "Patient-important outcome in general adult cohorts."
+    },
+    "imprecision": {
+     "judgment": "not serious",
+     "reason": "CIs exclude 1.0 in every synthesis reporting them."
+    },
+    "publication_bias": {
+     "judgment": "undetected",
+     "reason": "Not reported in abstracts."
+    }
+   },
+   "upgrade_considerations": "A dose-response gradient is reported in R12, R35 and R5; this is why certainty is rated low rather than very low. R27 authors themselves rated the substitution evidence moderate under GRADE.",
+   "key_refs": [
+    "R35",
+    "R12",
+    "R5",
+    "R11",
+    "R27"
+   ],
+   "evidence_type": "observational",
+   "abstract_only": true
+  },
+  {
+   "outcome": "Cardiovascular mortality",
+   "direction": "mixed",
+   "magnitude": "R11: red meat 16% higher CVD mortality (highest vs lowest), processed meat 18% higher; no association with IHD mortality for any meat type. R10: processed meat per 50 g RR 1.24 (1.13-1.35) for CVD mortality; total red meat negatively associated with CVD mortality in high-vs-low comparisons from low-meat Asian countries. R4 (9 articles meta-analysed): no association of unprocessed or processed meat with CHD mortality; unprocessed red meat and haemorrhagic stroke mortality in women RR 0.64 (0.45-0.91). R53 umbrella: weak associations, 'not likely causally related to CVD'. R55: 4 of 9 epidemiological studies positive for IHD, 5 null.",
+   "certainty": "very_low",
+   "grade_domains": {
+    "risk_of_bias": {
+     "judgment": "serious",
+     "reason": "Observational cohorts with self-reported diet; residual confounding acknowledged."
+    },
+    "inconsistency": {
+     "judgment": "very serious",
+     "reason": "Positive (R11, R10 processed), null (R4, R55) and inverse (R10 Asian cohorts, R4 haemorrhagic stroke in women) findings coexist."
+    },
+    "indirectness": {
+     "judgment": "not serious",
+     "reason": "Fatal CVD is a component of longevity."
+    },
+    "imprecision": {
+     "judgment": "serious",
+     "reason": "Several CIs include the null; subgroup estimates are based on few studies."
+    },
+    "publication_bias": {
+     "judgment": "undetected",
+     "reason": "Not assessable from abstracts."
+    }
+   },
+   "key_refs": [
+    "R11",
+    "R10",
+    "R4",
+    "R53",
+    "R55",
+    "R7"
+   ],
+   "evidence_type": "observational",
+   "abstract_only": true
+  },
+  {
+   "outcome": "Cancer mortality",
+   "direction": "harm",
+   "magnitude": "R8 umbrella (72 meta-analyses): red meat associated with increased overall cancer mortality; processed meat 'might' increase it; 100 g/day red meat and 50 g/day processed meat increments associated with 11-51% and 8-72% higher risk across multiple cancer outcomes (pooled RR for cancer mortality specifically not reported in abstract). R10 notes total red meat negatively associated with cancer mortality in low-meat Asian countries.",
+   "certainty": "very_low",
+   "grade_domains": {
+    "risk_of_bias": {
+     "judgment": "serious",
+     "reason": "Observational umbrella; quality and bias of included meta-analyses were assessed but the grading is not given in the abstract."
+    },
+    "inconsistency": {
+     "judgment": "serious",
+     "reason": "R10 reports inverse associations in Asian cohorts; processed meat effect on cancer mortality described only as 'might'."
+    },
+    "indirectness": {
+     "judgment": "not serious",
+     "reason": "Fatal cancer is a component of longevity."
+    },
+    "imprecision": {
+     "judgment": "serious",
+     "reason": "No CI for cancer mortality given in the abstract; the range 11-51% covers many different outcomes."
+    },
+    "publication_bias": {
+     "judgment": "undetected",
+     "reason": "Not assessable."
+    }
+   },
+   "key_refs": [
+    "R8",
+    "R10"
+   ],
+   "evidence_type": "observational",
+   "abstract_only": true
+  },
+  {
+   "outcome": "Life expectancy / years of life (modelled)",
+   "direction": "benefit from reduction (modelled only)",
+   "magnitude": "R19 UK life-table model: 35% and 50% reductions in red and processed meat (substituted with vegetables and legumes) projected +7.2 (1.1-12.9) and +9.4 (1.3-15.4) months of life expectancy; three quarters of the gain attributed to the added vegetables and legumes, not to meat removal itself.",
+   "certainty": "very_low",
+   "grade_domains": {
+    "risk_of_bias": {
+     "judgment": "very serious",
+     "reason": "Simulation driven by published relative risks and an agent-based behaviour model; no empirical outcome measured."
+    },
+    "inconsistency": {
+     "judgment": "not applicable",
+     "reason": "Single modelling study."
+    },
+    "indirectness": {
+     "judgment": "very serious",
+     "reason": "The modelled intervention bundles meat reduction with plant-food increase; the meat-specific contribution is a minority of the effect."
+    },
+    "imprecision": {
+     "judgment": "serious",
+     "reason": "Wide uncertainty intervals (1.1-12.9 months)."
+    },
+    "publication_bias": {
+     "judgment": "undetected",
+     "reason": "Not applicable."
+    }
+   },
+   "key_refs": [
+    "R19"
+   ],
+   "evidence_type": "observational",
+   "abstract_only": true
+  }
+ ],
+ "evidence_layers": {
+  "mechanistic_plausibility": "Narrative reviews propose heme iron, nitrites/nitrosamines, heterocyclic amines, saturated fat, TMAO and gut-microbiome effects (R2, R16, R18, R42). Short-term biomarker RCTs exist only for intake markers, not for disease (R14, R15). Mechanisms are plausible but do not quantify mortality.",
+  "observational_association": "Consistent, modest positive association for processed meat with all-cause mortality (R5, R11, R12, R35); small and inconsistent association for unprocessed red meat (R12 non-significant; R35 RR 1.10; R7 'weak'); substitution with nuts, legumes, whole grains associated with lower mortality (R27, R24).",
+  "causal_evidence": "None in the pack. No RCT with mortality, no Mendelian randomisation. R53 applied Bradford Hill criteria and concluded causality for CVD is not likely; R18 calls for MR studies. R6 notes short RCTs comparing white and red meat with matched fat found no difference in cardiometabolic risk factors.",
+  "real_world_effectiveness": "Only modelled (R19). No empirical evidence that reducing red meat intake has lengthened life in any population."
+ },
+ "synthesis_hierarchy": "For all-cause mortality: R35 (2017, dose-response across 12 food groups) is treated as superseding R12 (2014) and R11 (2014), which it post-dates and whose cohorts it would include; their estimates are reported for context but not counted as independent. R5 (2023 umbrella) re-summarises these meta-analyses and is not additive. R27 (2023 substitution) is a distinct question (replaced with what?) and is counted separately. R18, R2, R44 and R51 are narrative reviews or commentaries that cite the same R12 numbers and add no new data. No overlap_warnings were generated by the engine.",
+ "criticism_of_syntheses": "R13 (Potter 2020) and R51 (Qian 2020) criticise the NutriRECS guideline (not in pack) for relying on GRADE designed for drug trials and for ignoring substitution; R51 reports that NutriGRADE rates the meat-mortality evidence 'moderate'. These are opinion pieces; they do not change any pooled estimate in the pack, but they correctly flag that the comparator (what replaces meat) is decisive, which R27 addresses directly. A comment exists on R7 (Nat Med 2022, PMID 36216937) and on R27 (BMC Glob Public Health 2024, PMID 39681902) but neither comment is in the pack, so their content cannot be weighed.",
+ "contradictory_evidence": [
+  {
+   "ref": "R12",
+   "finding": "Unprocessed red meat and all-cause mortality RR 1.10 (0.98-1.22), not statistically significant; dose-response also non-significant for unprocessed red meat",
+   "quality": "Meta-analysis of 9 prospective studies (2014); abstract-only",
+   "weight": "High - the key synthesis separating processed from unprocessed; shows the unprocessed signal is weak"
+  },
+  {
+   "ref": "R7",
+   "finding": "Burden of Proof meta-regression: only weak evidence for unprocessed red meat and IHD, T2D, CRC, breast cancer; none for stroke; minimum-risk intake 95% UI 0-200 g/day",
+   "quality": "Systematic review with heterogeneity-aware meta-regression (2022); abstract-only",
+   "weight": "High for unprocessed red meat; does not address all-cause mortality directly"
+  },
+  {
+   "ref": "R11",
+   "finding": "No association between total meat and all-cause mortality; no association of any meat type with IHD mortality; high heterogeneity",
+   "quality": "Meta-analysis of 13 cohorts, 1,674,272 individuals (2014)",
+   "weight": "Moderate - older, superseded by R35 for red meat, but its null for IHD mortality is consistent with R4 and R55"
+  },
+  {
+   "ref": "R4",
+   "finding": "No association of unprocessed or processed meat with CHD mortality; unprocessed red meat protective for haemorrhagic stroke mortality in women RR 0.64 (0.45-0.91)",
+   "quality": "Meta-analysis (9 articles pooled of 21 cohorts; 2023)",
+   "weight": "Moderate - limited to CVD endpoints; subgroup finding is from few studies"
+  },
+  {
+   "ref": "R53",
+   "finding": "Umbrella review with Bradford Hill criteria: red and processed meat 'not likely causally related to CVD'; experimental data on risk factors mostly non-significant",
+   "quality": "Systematic review of 29 reviews (2024), tier C; abstract-only",
+   "weight": "Moderate for the causal question on CVD; does not cover all-cause mortality"
+  },
+  {
+   "ref": "R10",
+   "finding": "Total red meat intakes negatively associated with CVD and cancer mortality in high-vs-low comparisons from low-meat-consumption Asian countries",
+   "quality": "Summary of meta-analyses (2018)",
+   "weight": "Low-moderate - signals effect modification by baseline intake and region"
+  },
+  {
+   "ref": "R23",
+   "finding": "Among colorectal cancer patients, post-diagnosis unprocessed red meat associated with lower all-cause mortality RR 0.74 (0.57-0.94)",
+   "quality": "Meta-analysis (2025), different population; reverse causation (sicker patients eat less) plausible; R26 (2024 CUP Global) graded red/processed meat and mortality in the same population as 'limited-no conclusion'",
+   "weight": "Low for the general-population question"
+  },
+  {
+   "ref": "R39",
+   "finding": "In 200 Sardinians aged 90+, a red-meat dietary pattern was not associated with mortality",
+   "quality": "Small prospective cohort (2026), extreme-age population",
+   "weight": "Very low"
+  },
+  {
+   "ref": "R33",
+   "finding": "State-of-the-art review: unprocessed meat as an SFA-rich whole food 'not associated with increased risk of CVD'",
+   "quality": "Narrative review (2020); no new data",
+   "weight": "Low"
+  },
+  {
+   "ref": "R55",
+   "finding": "Red meat and IHD: 4 of 9 studies positive, 5 null; no clear relationship",
+   "quality": "Systematic review without meta-analysis (2015), tier C",
+   "weight": "Low"
+  }
+ ],
+ "retracted_or_flagged": "None. retracted_or_flagged is empty and no record carries integrity flags.",
+ "study_type_corrections": [
+  {
+   "ref": "R2",
+   "engine": "meta_analysis",
+   "corrected": "narrative review (PubMed type 'Review'); no pooled estimates"
+  },
+  {
+   "ref": "R3",
+   "engine": "meta_analysis",
+   "corrected": "scoping review (pulses); excluded"
+  },
+  {
+   "ref": "R13",
+   "engine": "rct",
+   "corrected": "opinion/commentary; no data"
+  },
+  {
+   "ref": "R14",
+   "engine": "rct, n=474",
+   "corrected": "biomarker development study: 12-person crossover feeding study plus 474-person cross-sectional validation; not a mortality trial"
+  },
+  {
+   "ref": "R15",
+   "engine": "rct, n=17",
+   "corrected": "two crossover feeding studies, 17 individuals, urinary biomarkers only"
+  },
+  {
+   "ref": "R21",
+   "engine": "systematic_review",
+   "corrected": "self-described systematic review but abstract reads as narrative/opinion; no methods, counts or estimates"
+  },
+  {
+   "ref": "R33",
+   "engine": "meta_analysis",
+   "corrected": "narrative state-of-the-art review"
+  },
+  {
+   "ref": "R36",
+   "engine": "rct",
+   "corrected": "narrative clinical review"
+  },
+  {
+   "ref": "R37",
+   "engine": "rct",
+   "corrected": "trial protocol (cluster RCT in infants, growth outcome)"
+  },
+  {
+   "ref": "R39",
+   "engine": "cross_sectional",
+   "corrected": "prospective cohort, n=200, up to 7 years follow-up"
+  },
+  {
+   "ref": "R40",
+   "engine": "cross_sectional, n=56018",
+   "corrected": "comparative risk assessment / PAF modelling using 56,018 survey adults"
+  },
+  {
+   "ref": "R19",
+   "engine": "unclassified",
+   "corrected": "life-table modelling study"
+  },
+  {
+   "ref": "R11",
+   "engine": "n=272",
+   "corrected": "13 cohort studies, 1,674,272 individuals"
+  },
+  {
+   "ref": "R12",
+   "engine": "n=None",
+   "corrected": "9 prospective studies; participant n not reported in abstract"
+  },
+  {
+   "ref": "R5",
+   "engine": "n=40",
+   "corrected": "40 meta-analyses included (not participants)"
+  },
+  {
+   "ref": "R10",
+   "engine": "n=37",
+   "corrected": "37 risk-outcome dose-response estimates (not participants)"
+  },
+  {
+   "ref": "R35",
+   "engine": "n=None",
+   "corrected": "participant n not reported in abstract"
+  },
+  {
+   "ref": "R27",
+   "engine": "n=None",
+   "corrected": "37 publications from 24 cohorts"
+  },
+  {
+   "ref": "R7",
+   "engine": "n=None",
+   "corrected": "not reported in abstract"
+  },
+  {
+   "ref": "R53",
+   "engine": "systematic_review",
+   "corrected": "umbrella review of 29 reviews (tier C but relevant)"
+  },
+  {
+   "ref": "R56",
+   "engine": "cohort",
+   "corrected": "pooled analysis of 30 cohorts, 2,575,971 participants; bladder cancer incidence only; excluded"
+  }
+ ],
+ "extractions": [
+  {
+   "ref": "R35",
+   "citation": "Schwingshackl 2017, Am J Clin Nutr, PMID 28446499",
+   "design": "systematic review and dose-response meta-analysis of prospective cohorts, 12 food groups",
+   "population": "general adult cohorts",
+   "n": "not reported in abstract",
+   "comparator": "per daily serving (linear), high vs low",
+   "outcomes": "all-cause mortality",
+   "effect": "red meat RR 1.10 (1.04-1.18) per serving; processed meat RR 1.23 (1.12-1.36) per serving",
+   "funding_coi": "not stated in abstract",
+   "limitations": "observational; serving definitions vary; abstract-only"
+  },
+  {
+   "ref": "R12",
+   "citation": "Larsson 2014, Am J Epidemiol, PMID 24148709",
+   "design": "meta-analysis of 9 prospective studies (random effects)",
+   "population": "general adult cohorts",
+   "n": "not reported in abstract",
+   "comparator": "highest vs lowest category; dose-response",
+   "outcomes": "all-cause mortality",
+   "effect": "unprocessed red 1.10 (0.98-1.22; 6 studies); processed 1.23 (1.17-1.28; 6); total red 1.29 (1.24-1.35; 5); nonlinear dose-response significant for processed and total but not unprocessed",
+   "funding_coi": "Research Support, Non-U.S. Gov't (PubMed type); details not in abstract",
+   "limitations": "search to May 2013; abstract-only"
+  },
+  {
+   "ref": "R11",
+   "citation": "Abete 2014, Br J Nutr, PMID 24932617",
+   "design": "meta-analysis of 13 cohort studies",
+   "population": "1,674,272 individuals",
+   "n": "1,674,272",
+   "comparator": "highest vs lowest; +50 g/d processed; +100 g/d red",
+   "outcomes": "all-cause, CVD, IHD mortality",
+   "effect": "processed: 22% higher all-cause, 18% higher CVD; red: 16% higher CVD, no association with total mortality; no association with IHD for any meat; CIs not in abstract",
+   "funding_coi": "not stated",
+   "limitations": "high heterogeneity; residual confounding acknowledged by authors"
+  },
+  {
+   "ref": "R5",
+   "citation": "Zhang 2023, Br J Nutr, PMID 36545687",
+   "design": "umbrella review of 40 meta-analyses (PROSPERO CRD42021218568)",
+   "population": "general",
+   "n": "40 meta-analyses",
+   "comparator": "+100 g/d red; +50 g/d processed",
+   "outcomes": "non-cancer outcomes incl. all-cause mortality",
+   "effect": "processed meat all-cause mortality RR 1.15 (1.11-1.19) per 50 g/d; red meat +100 g/d: T2DM +17%, CHD +15%, hypertension +14%, stroke +12% (all-cause mortality RR for red meat not given in abstract)",
+   "funding_coi": "Research Support, Non-U.S. Gov't",
+   "limitations": "re-summarises existing meta-analyses; authors call for RCTs"
+  },
+  {
+   "ref": "R27",
+   "citation": "Neuenschwander 2023, BMC Med, PMID 37968628",
+   "design": "systematic review and meta-analysis of prospective substitution analyses; GRADE",
+   "population": "24 cohorts, 37 publications",
+   "n": "not reported",
+   "comparator": "explicit substitution: red/processed meat replaced by nuts, legumes, whole grains",
+   "outcomes": "CVD, T2D, all-cause mortality",
+   "effect": "all-cause mortality: red meat->nuts SHR 0.93 (0.91-0.95; 9 cohorts), ->whole grains 0.96 (0.95-0.98; 3); processed->nuts 0.79 (0.71-0.88; 9), ->legumes 0.91 (0.85-0.98; 9); authors' GRADE: moderate",
+   "funding_coi": "Research Support, Non-U.S. Gov't",
+   "limitations": "modelled substitution in observational data; a published comment exists (PMID 39681902) not in pack"
+  },
+  {
+   "ref": "R7",
+   "citation": "Lescinsky 2022, Nat Med, PMID 36216940",
+   "design": "systematic review with Burden of Proof meta-regression",
+   "population": "general",
+   "n": "not reported",
+   "comparator": "continuous intake",
+   "outcomes": "CRC, breast cancer, T2D, IHD, ischaemic and haemorrhagic stroke (incidence and mortality)",
+   "effect": "weak evidence for CRC, breast, T2D, IHD; no evidence for stroke; minimum-risk intake 0 g/d with 95% UI 0-200 g/d",
+   "funding_coi": "NIH and non-US government support; a comment exists (PMID 36216937) not in pack",
+   "limitations": "does not pool all-cause mortality; abstract-only"
+  },
+  {
+   "ref": "R10",
+   "citation": "Yip 2018, Eur J Clin Nutr, PMID 28792013",
+   "design": "summary of published meta-analyses with quality scoring",
+   "population": "general",
+   "n": "37 dose-response estimates",
+   "comparator": "+50 g processed; +65 g red",
+   "outcomes": "21 disease burdens incl. CVD and cancer mortality",
+   "effect": "processed meat CVD mortality 1.24 (1.13-1.35) per 50 g; total red meat negatively associated with CVD and cancer mortality in low-meat Asian countries",
+   "funding_coi": "not stated",
+   "limitations": "non-standard assessment process; abstract-only"
+  },
+  {
+   "ref": "R4",
+   "citation": "de Medeiros 2023, Crit Rev Food Sci Nutr, PMID 35491892",
+   "design": "SR of 21 cohorts, MA of 9 (PROSPERO CRD42019100914)",
+   "population": "general",
+   "n": "not reported",
+   "comparator": "unprocessed vs processed; high vs low",
+   "outcomes": "stroke, HF, CHD incidence and mortality",
+   "effect": "unprocessed: total stroke incidence RR 1.10 (1.01-1.19); haemorrhagic stroke mortality women RR 0.64 (0.45-0.91); no association with CHD mortality; processed: stroke incidence 1.17 (1.08-1.26); no association with CHD mortality",
+   "funding_coi": "not stated",
+   "limitations": "heterogeneity restricted MA to 9 of 21 studies"
+  },
+  {
+   "ref": "R8",
+   "citation": "Huang 2021, Food Chem, PMID 33838606",
+   "design": "umbrella review of 72 meta-analyses",
+   "population": "general",
+   "n": "72 meta-analyses",
+   "comparator": "+100 g/d red; +50 g/d processed",
+   "outcomes": "cancer incidence and overall cancer mortality",
+   "effect": "red meat associated with increased overall cancer mortality; processed 'might'; 11-51% and 8-72% higher risk across outcomes",
+   "funding_coi": "not stated",
+   "limitations": "mortality RR not given in abstract"
+  },
+  {
+   "ref": "R23",
+   "citation": "Chen 2025, J Natl Cancer Inst, PMID 40317134",
+   "design": "meta-analysis (DerSimonian-Laird)",
+   "population": "colorectal cancer patients post-diagnosis",
+   "n": "not reported",
+   "comparator": "high vs low",
+   "outcomes": "all-cause and CRC-specific mortality",
+   "effect": "unprocessed red meat all-cause mortality RR 0.74 (0.57-0.94)",
+   "funding_coi": "not stated",
+   "limitations": "different population; reverse causation likely; R26 graded same exposure 'limited-no conclusion'"
+  },
+  {
+   "ref": "R24",
+   "citation": "Fernandez-Figares Jimenez 2025, Curr Nutr Rep, PMID 40779285",
+   "design": "systematic review, 17 articles (14 cohorts, 1 case-cohort, 2 pooled), ROBINS-E",
+   "population": "general",
+   "n": "not reported",
+   "comparator": "animal foods/protein replaced by plant foods/protein",
+   "outcomes": "cancer risk, cancer mortality, total mortality",
+   "effect": "lower total mortality in 5 studies, lower cancer mortality in 3; no meta-analysis",
+   "funding_coi": "not stated",
+   "limitations": "narrative synthesis only; mixes eggs, dairy, meat"
+  },
+  {
+   "ref": "R19",
+   "citation": "Eustachio Colombo 2026, Eur J Nutr, PMID 42752699",
+   "design": "life-table modelling (IOMLIFET) of UK dietary targets",
+   "population": "UK population",
+   "n": "not applicable",
+   "comparator": "35% / 50% meat reduction with vegetable/legume substitution",
+   "outcomes": "life expectancy, years of life gained",
+   "effect": "+7.2 (1.1-12.9) and +9.4 (1.3-15.4) months; 3/4 of gain from added plant foods",
+   "funding_coi": "not stated",
+   "limitations": "simulation; conditional on modelled behaviour"
+  },
+  {
+   "ref": "R30",
+   "citation": "English 2021, JAMA Netw Open, PMID 34463743",
+   "design": "USDA NESR systematic review (1 RCT, 152 observational)",
+   "population": "adults 17-84 y, 28 high-HDI countries",
+   "n": "not reported",
+   "comparator": "dietary patterns",
+   "outcomes": "all-cause mortality",
+   "effect": "patterns low in red and processed meat (and high in plant foods, fish, lean meat/poultry) associated with lower ACM; no meat-specific estimate",
+   "funding_coi": "US government review",
+   "limitations": "pattern-level only; cannot isolate red meat"
+  },
+  {
+   "ref": "R53",
+   "citation": "Hill 2024, Crit Rev Food Sci Nutr, PMID 36154543",
+   "design": "umbrella review of 29 reviews with Bradford Hill assessment",
+   "population": "general",
+   "n": "29 reviews",
+   "comparator": "URM, PM, mixed",
+   "outcomes": "CVD, T2DM (incidence and death)",
+   "effect": "weak associations for CVD; experimental risk-factor data mostly non-significant; 'not likely causally related to CVD'",
+   "funding_coi": "not stated in abstract (journal is Meat-science adjacent; cannot verify)",
+   "limitations": "tier C; no all-cause mortality"
+  }
+ ],
+ "generalisability": "The question names no population. The syntheses pool cohorts mainly from North America and Europe, with some Asian cohorts; R10 and R61 show that associations differ in low-meat-consumption Asian populations (inverse or null), and R23/R39 show different or null patterns in colorectal cancer survivors and the very old. Estimates therefore apply most directly to middle-aged adults in high-income Western countries with typical Western intake levels, and less to low-intake populations, children, or clinical groups. The comparator matters: benefit of lower intake is clearest when red or processed meat is replaced by nuts, legumes or whole grains (R27); the pack has no estimate for replacement by refined carbohydrates or other animal foods.",
+ "what_would_change_this": "Decisive study: a large, multi-year randomised trial (or cluster/pragmatic trial) of reduced red or processed meat intake with a pre-specified replacement food and all-cause mortality as the primary endpoint, or, more feasibly, well-powered Mendelian randomisation using validated genetic instruments for meat intake with mortality outcomes. A positive trial or MR effect would move the verdict to strongly_supports; a null trial or MR with adequate power would move it to contradicts or mixed. For unprocessed red meat specifically, a new meta-analysis with biomarker-validated intake (R14, R15 describe such biomarkers) showing either a consistent dose-response or a consistent null would resolve the current inconsistency. Full text of R35, R12 and R27 (funnel plots, risk-of-bias tables, absolute risks) would allow certainty to be re-rated.",
+ "possibly_missed_studies_not_verified": [
+  "Zeraatkar et al. 2019, Annals of Internal Medicine, NutriRECS systematic reviews of red and processed meat and mortality (criticised in R13 and R51 but not in pack)",
+  "Wang et al. 2016, Public Health Nutrition, meta-analysis of red and processed meat and all-cause mortality",
+  "Zheng et al. 2019, BMJ, changes in red meat consumption and mortality in US cohorts",
+  "Iqbal et al. 2021, American Journal of Clinical Nutrition, PURE cohort meat intake and mortality",
+  "Any Mendelian randomisation study of meat intake and mortality"
+ ],
+ "records_used": [
+  "R4",
+  "R5",
+  "R7",
+  "R8",
+  "R10",
+  "R11",
+  "R12",
+  "R13",
+  "R18",
+  "R19",
+  "R23",
+  "R24",
+  "R26",
+  "R27",
+  "R30",
+  "R33",
+  "R35",
+  "R39",
+  "R51",
+  "R53",
+  "R55",
+  "R2",
+  "R16",
+  "R44",
+  "R6"
+ ],
+ "records_excluded": [
+  {
+   "ref": "R1",
+   "why": "Outcome is type 2 diabetes/metabolic syndrome, not mortality"
+  },
+  {
+   "ref": "R3",
+   "why": "Scoping review of pulses; wrong exposure"
+  },
+  {
+   "ref": "R9",
+   "why": "Palm oil; wrong exposure"
+  },
+  {
+   "ref": "R14",
+   "why": "Biomarker development (smoked meat), no health outcome"
+  },
+  {
+   "ref": "R15",
+   "why": "Urinary biomarker feeding study, no health outcome"
+  },
+  {
+   "ref": "R17",
+   "why": "Hypertension outcome, narrative review"
+  },
+  {
+   "ref": "R20",
+   "why": "Dietary patterns and colorectal cancer incidence; cannot isolate red meat"
+  },
+  {
+   "ref": "R21",
+   "why": "Opinion-style review without extractable methods or estimates"
+  },
+  {
+   "ref": "R22",
+   "why": "Dietary patterns and breast cancer"
+  },
+  {
+   "ref": "R25",
+   "why": "Umbrella review of vegetarian/vegan diets; exposure is whole diet"
+  },
+  {
+   "ref": "R28",
+   "why": "Food environment ecological studies"
+  },
+  {
+   "ref": "R29",
+   "why": "Beef and wellbeing markers in over-50s; no mortality"
+  },
+  {
+   "ref": "R31",
+   "why": "EPIC cancer incidence review; mortality not meat-specific"
+  },
+  {
+   "ref": "R32",
+   "why": "Salt and gastric cancer"
+  },
+  {
+   "ref": "R34",
+   "why": "Mediterranean diet components and CRC"
+  },
+  {
+   "ref": "R36",
+   "why": "CRC screening narrative review"
+  },
+  {
+   "ref": "R37",
+   "why": "Trial protocol in infants, growth outcome"
+  },
+  {
+   "ref": "R38",
+   "why": "Ecological analysis of endoscopist density"
+  },
+  {
+   "ref": "R40",
+   "why": "PAF modelling of Chinese provincial diets; no meat-specific estimate reported"
+  },
+  {
+   "ref": "R41",
+   "why": "Narrative review of Japanese diet"
+  },
+  {
+   "ref": "R42",
+   "why": "Mechanistic microbiome review; no mortality data"
+  },
+  {
+   "ref": "R43",
+   "why": "CKD lifestyle narrative review"
+  },
+  {
+   "ref": "R45",
+   "why": "Refined grains perspective"
+  },
+  {
+   "ref": "R46",
+   "why": "GBD Afghanistan IHD trends; descriptive"
+  },
+  {
+   "ref": "R47",
+   "why": "GBD diabetes burden; descriptive"
+  },
+  {
+   "ref": "R48",
+   "why": "GBD diabetes burden; descriptive"
+  },
+  {
+   "ref": "R49",
+   "why": "GBD breast cancer China; descriptive"
+  },
+  {
+   "ref": "R50",
+   "why": "GBD early-onset CRC; descriptive"
+  },
+  {
+   "ref": "R52",
+   "why": "CRC epidemiology narrative"
+  },
+  {
+   "ref": "R54",
+   "why": "Fruit and vegetables; wrong exposure"
+  },
+  {
+   "ref": "R56",
+   "why": "Bladder cancer incidence only"
+  },
+  {
+   "ref": "R57",
+   "why": "Cognitive outcomes"
+  },
+  {
+   "ref": "R58",
+   "why": "Omega-3 review"
+  },
+  {
+   "ref": "R59",
+   "why": "Gut microbiome review"
+  },
+  {
+   "ref": "R60",
+   "why": "Mediterranean pyramid"
+  },
+  {
+   "ref": "R61",
+   "why": "Stomach cancer incidence only"
+  },
+  {
+   "ref": "R62",
+   "why": "GBD processed-meat stroke burden; derived from GBD relative risks, not new evidence"
+  },
+  {
+   "ref": "R63",
+   "why": "GBD 2021 risk factor overview; red meat estimate not extractable from abstract"
+  },
+  {
+   "ref": "R64",
+   "why": "Multimorbidity primer"
+  },
+  {
+   "ref": "R65",
+   "why": "GBD 2019 overview; not extractable"
+  },
+  {
+   "ref": "R66",
+   "why": "Oxidative stress review"
+  },
+  {
+   "ref": "R67",
+   "why": "Oxidative stress review"
+  },
+  {
+   "ref": "R68",
+   "why": "Mammalogy guidelines; irrelevant"
+  },
+  {
+   "ref": "R69",
+   "why": "Dyslipidaemia guideline"
+  },
+  {
+   "ref": "R70",
+   "why": "Shared CVD/cancer risk factors review"
+  },
+  {
+   "ref": "R71",
+   "why": "Heart disease statistics"
+  },
+  {
+   "ref": "R72",
+   "why": "Heart disease statistics"
+  },
+  {
+   "ref": "R73",
+   "why": "Cancer survivor guidelines"
+  },
+  {
+   "ref": "R74",
+   "why": "Dyslipidaemia guideline"
+  },
+  {
+   "ref": "R75",
+   "why": "Mammalogy guidelines; irrelevant"
+  },
+  {
+   "ref": "R76",
+   "why": "Nutrition transition narrative"
+  },
+  {
+   "ref": "R77",
+   "why": "Evolutionary immunology; irrelevant"
+  }
+ ],
+ "notes_on_context_records": "R2, R16, R18, R44 (narrative reviews) and R13, R51 (commentaries) were read and used only for mechanism, framing or criticism; they contribute no independent estimates. R6 (white meat SR/MA) was used only for its statement that short RCTs comparing white with red meat at matched fat content showed no differences in cardiometabolic risk factors."
+}
