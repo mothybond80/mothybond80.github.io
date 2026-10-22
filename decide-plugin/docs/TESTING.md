@@ -166,8 +166,21 @@ expanded "extraversion" to "personality", "attractiveness" to "dating", and
 added the population word "men" as a boolean term. Fixed after the run:
 tighter synonyms (extravert*/extrovert*, mate preference, speed-dating,
 desirability), and single-word demographics (men, women, adults...) are no
-longer added to boolean queries; they stay in the PICO for the appraiser. A
-re-run of that subject is recorded below when available.
+longer added to boolean queries; they stay in the PICO for the appraiser.
+Re-run on the Mac mini after that fix: 67 records, tier A 1 / B 19 / C 47,
+pack hashes still identical across framings, and the top hit is on topic
+("Physical attractiveness perceptions in small groups: associations with
+extraversion, smiling, and speaking time", 2026). Tier B still admitted
+dental-aesthetics papers via the bare term "attractiveness", so that term was
+replaced by mate-preference / romantic-attraction phrases.
+
+Second failure mode from the same run: the **diet and ADHD** and **cold
+plunge** subjects were polluted by the generic synonyms "attention",
+"hyperactivity", "nutrition" and "supplementation" (top hits included
+melatonin and ketogenic-diet reviews). Synonyms narrowed to ADHD-specific
+terms. For cold water immersion and ADHD the correct outcome of a tight
+search is very few records, which the appraiser must report as insufficient
+evidence rather than fill with adjacent literature.
 
 Note on exit codes: `decide-engine verify` exits 2 when any verdict is not
 verified (retracted, not_found, title_mismatch) and 3 when a verdict is
