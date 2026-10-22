@@ -45,7 +45,14 @@ def _fmt_record(r: dict[str, Any], abstract_chars: int | None) -> str:
     return head
 
 
-def digest(pack: dict[str, Any], tier_b_chars: int = 700, max_c: int = 60) -> str:
+def digest(pack: dict[str, Any], tier_b_chars: int = 700, max_c: int = 60, max_a: int | None = None, b_titles_only: bool = False) -> str:
+    """quick mode (pack["mode"] == "quick") defaults to a smaller view: at most 30 tier A records with
+    full abstracts (the pack is already ranked synthesis-first), tier B as titles only, tier C counted
+    only. Deep mode shows everything. Linked commentary records are always shown in full."""
+    if pack.get("mode") == "quick":
+        max_a = 30 if max_a is None else max_a
+        b_titles_only = True
+        max_c = min(max_c, 15)
     q = pack["question"]
     out = [f"# Evidence pack digest\n", f"**Neutral question:** {q['neutral']}\n",
            f"- exposure: {q['exposure']}; outcome: {q['outcome']}; population: {q.get('population') or 'not specified'}; domains: {', '.join(q['domains'])}",
@@ -74,12 +81,25 @@ def digest(pack: dict[str, Any], tier_b_chars: int = 700, max_c: int = 60) -> st
     out.append("\n## Appraiser contract\n")
     out.append("```json\n" + json.dumps(pack["appraiser_contract"], indent=1) + "\n```")
     recs = pack["records"]
-    for tier, chars, title in (("A", None, "Tier A records (exposure in title, outcome present) - full abstracts"),
-                               ("B", tier_b_chars, "Tier B records (exposure and outcome present) - truncated abstracts"),):
-        rs = [r for r in recs if r["relevance"]["tier"] == tier]
-        out.append(f"\n## {title}: {len(rs)}\n")
-        for r in rs:
-            out.append(_fmt_record(r, 0 if chars is None else chars))
+    ra = [r for r in recs if r["relevance"]["tier"] == "A"]
+    shown_a = ra if max_a is None else (ra[:max_a] + [r for r in ra[max_a:] if r.get("linked_from_pmid")])
+    out.append(f"\n## Tier A records (exposure in title, outcome present) - full abstracts: {len(shown_a)} of {len(ra)}\n")
+    for r in shown_a:
+        out.append(_fmt_record(r, 0))
+    if len(shown_a) < len(ra):
+        out.append(f"\n### Further tier A records not shown in full ({len(ra) - len(shown_a)}; titles only, see pack.json)\n")
+        for r in ra:
+            if r not in shown_a:
+                out.append(f"- [{r['ref']}] {r.get('year') or '?'} {r.get('classification', {}).get('study_type')}: {r.get('title')}")
+    rb = [r for r in recs if r["relevance"]["tier"] == "B"]
+    if b_titles_only:
+        out.append(f"\n## Tier B records (exposure and outcome present) - titles only: {len(rb)}\n")
+        for r in rb:
+            out.append(f"- [{r['ref']}] {r.get('year') or '?'} {r.get('classification', {}).get('study_type')}: {r.get('title')}" + (" **RETRACTED**" if r.get("is_retracted") else ""))
+    else:
+        out.append(f"\n## Tier B records (exposure and outcome present) - truncated abstracts: {len(rb)}\n")
+        for r in rb:
+            out.append(_fmt_record(r, tier_b_chars))
     rs = [r for r in recs if r["relevance"]["tier"] == "C"]
     out.append(f"\n## Tier C records (lexically off-topic; titles only): {len(rs)}\n")
     for r in rs[:max_c]:

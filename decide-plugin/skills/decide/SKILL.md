@@ -125,7 +125,8 @@ Spawn `decide:evidence-challenger` with exactly:
 > `$RUN/digest.md` first). Write your report to `$RUN/challenge.md`, ending
 > with a line `challenge_outcome: <value>`.
 
-Quick mode: add "Be brief: answer the ten checks in one or two sentences each."
+Quick mode: add "Quick mode: be brief, answer the ten checks in one to three
+sentences each, no extra searches, at most 8 tool calls."
 
 ### Step 6 — Verify citations and references
 
