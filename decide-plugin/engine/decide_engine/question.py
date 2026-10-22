@@ -269,11 +269,10 @@ SYNONYMS: dict[str, list[str]] = {
     "income": ["income", "wealth", "money"],
     "subjective well-being happiness": ["happiness", "subjective well-being", "life satisfaction", "emotional well-being"],
     "cold water immersion": ["cold water immersion", "cold exposure", "ice bath", "cold plunge"],
-    "adhd symptoms": ["ADHD", "attention deficit hyperactivity disorder", "attention", "hyperactivity"],
-    "dietary intervention": ["diet", "dietary intervention", "elimination diet", "nutrition", "supplementation"],
+    "adhd symptoms": ["ADHD", "attention deficit hyperactivity disorder", "attention-deficit", "hyperkinetic disorder"],
+    "dietary intervention": ["diet", "dietary intervention", "elimination diet", "few-foods diet", "nutritional intervention", "dietary supplement*"],
     "flow neuroscience tdcs headset": ["Flow Neuroscience", "transcranial direct current stimulation", "tDCS", "home-based tDCS"],
     "depression": ["depression", "depressive disorder", "depressive symptoms"],
-    "adhd symptoms": ["ADHD", "attention deficit hyperactivity disorder", "attention", "hyperactivity"],
 }
 
 
