@@ -62,3 +62,17 @@ def test_red_meat_pack_has_observational_designs():
     kinds = pack["study_type_counts"]
     assert kinds.get("cohort", 0) + kinds.get("longitudinal", 0) + kinds.get("cross_sectional", 0) >= 5
     assert any("burden of proof" in (r.get("title") or "").lower() for r in pack["records"])
+
+
+def test_digest_is_compact_and_complete():
+    from decide_engine.digest import digest
+    pack, _ = _pack("Does creatine improve cognitive performance?")
+    md = digest(pack)
+    assert len(md) < len(json.dumps(pack)) / 3
+    for r in pack["records"]:
+        assert f"[{r['ref']}]" in md
+    assert "appraiser_contract" in json.dumps(pack) and "Appraiser contract" in md
+    assert "Tier A records" in md and "Searches actually run" in md
+    header = md.split("## Tier A records")[0].lower()
+    for w in ("improve", "isn't", "great for"):
+        assert w not in header  # no asker framing in the digest header (abstracts may legitimately contain such words)

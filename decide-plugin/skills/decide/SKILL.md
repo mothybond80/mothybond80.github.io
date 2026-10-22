@@ -66,7 +66,8 @@ to `$RUN/claim.md`.
 decide-engine search "Q" --mode quick|deep --out $RUN/pack.json [--exposure .. --outcome .. --population ..]
 ```
 `challenge` mode uses `--mode quick` limits. The command prints a summary and
-writes `pack.json` plus `pack.asker.json` (do NOT open the asker file yet).
+writes `pack.json`, `digest.md` (compact view for the agents) and
+`pack.asker.json` (do NOT open the asker file yet).
 
 - Exit code 3 means some URLs were blocked (`missing_urls`). This happens in
   sandboxes whose network policy denies the APIs. For each URL: fetch it with
@@ -87,10 +88,11 @@ Spawn the `decide:evidence-appraiser` agent (Agent tool, `subagent_type:
 path(s) filled in and nothing else added:
 
 > Appraise the evidence pack at `$RUN/pack.json` according to its
-> `appraiser_contract`. Write the JSON block to `$RUN/appraisal.json` and the
-> plain-language appraisal to `$RUN/appraisal.md`. Mode: quick|deep (quick =
-> focus on the tier-A records and the best synthesis per outcome; deep = all
-> tier A and B records, with per-record extraction tables).
+> `appraiser_contract`. Read `$RUN/digest.md` first. Write the JSON block to
+> `$RUN/appraisal.json` and the plain-language appraisal to
+> `$RUN/appraisal.md`. Mode: quick|deep (quick = focus on the tier-A records
+> and the best synthesis per outcome; deep = all tier A and B records, with
+> per-record extraction tables).
 
 In `challenge` mode skip this step: the appraisal under challenge is the
 user's claim. Write `$RUN/appraisal.md` containing only the claim text and
@@ -111,8 +113,9 @@ amendment with a reason, never edited in place.
 Spawn `decide:evidence-challenger` with exactly:
 
 > Challenge the appraisal at `$RUN/appraisal.md` (JSON: `$RUN/appraisal.json`
-> if present) against the evidence pack `$RUN/pack.json`. Write your report to
-> `$RUN/challenge.md`, ending with a line `challenge_outcome: <value>`.
+> if present) against the evidence pack `$RUN/pack.json` (read
+> `$RUN/digest.md` first). Write your report to `$RUN/challenge.md`, ending
+> with a line `challenge_outcome: <value>`.
 
 Quick mode: add "Be brief: answer the ten checks in one or two sentences each."
 

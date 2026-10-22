@@ -3,6 +3,7 @@
   decide-engine parse  "question"                       neutralise + strategy (no network)
   decide-engine plan   "question" [--mode quick|deep]   URLs the search would need (no network)
   decide-engine search "question" [--mode] [--out F]    build the evidence pack
+  decide-engine digest pack.json [--out digest.md]      compact Markdown view for the appraiser
   decide-engine verify (--doi D | --pmid P | --title T [--year Y --author A]) | --file citations.json
   decide-engine lock   FILE                              sha256 of a file (evidence-lock)
   decide-engine cache-put URL FILE                       store a response fetched elsewhere
@@ -87,10 +88,14 @@ def cmd_search(args: argparse.Namespace) -> int:
         out.write_text(json.dumps(pack, indent=1, ensure_ascii=False, default=str), encoding="utf-8")
         ask = out.with_name(out.stem + ".asker.json")
         ask.write_text(json.dumps(asker_block(pq), indent=1), encoding="utf-8")
+        from .digest import digest
+        dg = out.with_name("digest.md")
+        dg.write_text(digest(pack), encoding="utf-8")
         summary = {k: pack[k] for k in ("mode", "question", "n_records", "relevance_tiers", "study_type_counts", "retracted_or_flagged", "errors", "pack_hash", "fetch_log_summary", "optional_missing_urls")}
         summary["overlap_warnings"] = len(pack["overlap_warnings"])
         summary["pack_file"] = str(out)
         summary["asker_file"] = str(ask)
+        summary["digest_file"] = str(dg)
         summary["missing_urls"] = missing
         print(json.dumps(summary, indent=2, ensure_ascii=False))
     else:
@@ -123,6 +128,16 @@ def cmd_verify(args: argparse.Namespace) -> int:
     return 0 if all(r["verdict"] in ("verified", "resolved_by_search") for r in results) else 2
 
 
+def cmd_digest(args: argparse.Namespace) -> int:
+    from .digest import digest
+    pack = json.loads(Path(args.pack).read_text(encoding="utf-8"))
+    md = digest(pack, tier_b_chars=args.tier_b_chars, max_c=args.max_c)
+    out = Path(args.out) if args.out else Path(args.pack).with_name("digest.md")
+    out.write_text(md, encoding="utf-8")
+    print(json.dumps({"digest": str(out), "chars": len(md), "records": pack["n_records"], "tiers": pack["relevance_tiers"]}))
+    return 0
+
+
 def cmd_lock(args: argparse.Namespace) -> int:
     h = hashlib.sha256(Path(args.file).read_bytes()).hexdigest()
     print(json.dumps({"file": args.file, "sha256": h}))
@@ -149,6 +164,8 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--out"); s.add_argument("--exposure"); s.add_argument("--outcome"); s.add_argument("--population"); s.set_defaults(fn=cmd_search)
     s = sub.add_parser("verify"); s.add_argument("--file"); s.add_argument("--doi"); s.add_argument("--pmid"); s.add_argument("--title")
     s.add_argument("--year", type=int); s.add_argument("--author"); s.add_argument("--pack", help="evidence pack whose PubMed records may resolve identifiers offline"); s.set_defaults(fn=cmd_verify)
+    s = sub.add_parser("digest", help="write a compact Markdown view of a pack for the appraising agents")
+    s.add_argument("pack"); s.add_argument("--out"); s.add_argument("--tier-b-chars", type=int, default=700); s.add_argument("--max-c", type=int, default=60); s.set_defaults(fn=cmd_digest)
     s = sub.add_parser("lock"); s.add_argument("file"); s.set_defaults(fn=cmd_lock)
     s = sub.add_parser("cache-put"); s.add_argument("url"); s.add_argument("file"); s.set_defaults(fn=cmd_cache_put)
 

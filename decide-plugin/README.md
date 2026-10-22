@@ -70,6 +70,7 @@ saw), `pack.asker.json` (your framing, sealed until the decision step),
 bin/decide-engine parse  "question" --hide-asker
 bin/decide-engine plan   "question" --mode quick|deep
 bin/decide-engine search "question" --mode quick|deep --out pack.json [--exposure X --outcome Y --population P]
+bin/decide-engine digest pack.json                     # compact Markdown view (also written by search --out)
 bin/decide-engine verify --doi 10.1093/nutrit/nuac064 --title "..." --year 2023 --author Prokopidis
 bin/decide-engine verify --file citations.json
 bin/decide-engine lock   pack.json
