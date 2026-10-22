@@ -24,6 +24,14 @@ Working directory for this run:
 `RUN=${CLAUDE_PROJECT_DIR:-$HOME}/.decide/$(date +%Y%m%d-%H%M%S)` — create it.
 Everything the pipeline produces goes there so the user can audit it.
 
+Progress file: after every step append one line to `$RUN/status.md`
+(`step N done: <what> <time>`) and, in headless runs, print the same line.
+A run that is cut off then still leaves a readable trail. Budget: quick mode
+should complete in about 10 minutes of agent time; if the challenger has not
+written `challenge.md` after roughly twice the appraiser's time, proceed with
+`challenge_outcome: not_completed`, say so in the report, and lower the
+stated certainty by one step.
+
 ## Non-negotiable rules
 
 1. **Framing-blind.** Nothing you pass to the engine search, the appraiser or
