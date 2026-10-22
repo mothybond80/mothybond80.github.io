@@ -1,0 +1,14 @@
+{
+  "name": "mothybond80",
+  "owner": {"name": "Tim Bond"},
+  "description": "Tim Bond's Claude Code plugins",
+  "plugins": [
+    {
+      "name": "decide",
+      "source": "./decide-plugin",
+      "description": "Evidence-to-Decision Engine: /decide quick|deep|challenge",
+      "category": "research",
+      "tags": ["evidence", "research", "decision"]
+    }
+  ]
+}

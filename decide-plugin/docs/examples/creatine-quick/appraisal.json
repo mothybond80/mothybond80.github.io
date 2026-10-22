@@ -1,0 +1,184 @@
+{
+  "neutral_question": "What is the effect of creatine supplementation on cognitive performance, and in which direction?",
+  "coverage_limits": {
+    "searches_run": [
+      "PubMed systematic reviews/meta-analyses filter: 60 hits, 25 returned",
+      "PubMed RCT/controlled trial filter: 179 hits, only 25 returned",
+      "PubMed any design since 2023-01-01 sorted by date: 1929 hits, only 15 returned",
+      "OpenAlex 'creatine supplementation cognitive performance' sorted by citations: 11974 hits, 20 returned, almost all off-topic (cardiology guidelines, statin reviews)"
+    ],
+    "not_searched": [
+      "The planned PubMed observational/cohort search, the OpenAlex review-filtered search, Europe PMC and Semantic Scholar appear in search_strategy but not in searches, so they were not executed (errors list is empty, so this was silent).",
+      "154 of 179 PubMed trial hits and most recent-literature hits were never retrieved; the trial set in the pack is a relevance-ranked sample, not the full set.",
+      "No full text was available for any record; every extraction below is abstract-only.",
+      "11 OpenAlex enrichment fetches were blocked (optional_missing_urls); this affects citation/reference metadata, not abstracts.",
+      "R5 (Xu et al. 2024 meta-analysis, Front Nutr) is present only as its published erratum: the pack holds no results, effect sizes or inclusion list for it, and the 2026 comment on it is not in the pack.",
+      "Published comments on R7 (Nutr Rev 2023, PMID 36644917) and on R1 (two Nutr Rev 2026 comments) are not in the pack, so criticisms of those syntheses could not be weighed."
+    ]
+  },
+  "evidence_summary": "The evidence consists of small randomised placebo-controlled trials (typically 12-128 participants, 5 days to 24 weeks) and several systematic reviews, all abstract-only. The one meta-analysis with usable data (R7, Prokopidis 2023, 8 RCTs) reports a small pooled improvement in memory measures versus placebo (SMD 0.29, 95% CI 0.04-0.53, I2 66%), concentrated in older adults (SMD 0.88, 95% CI 0.22-1.55, I2 83%) with no effect in 11-31 year olds (SMD 0.03, 95% CI -0.14 to 0.20). The largest single trial (R20, Sandkuhler 2023, n=123 crossover) found only a borderline working-memory signal (p=0.064, eta2p=0.029) and no effect on reasoning or eight exploratory tasks, while a 24-week trial in older women (R21, Alves 2013) found no cognitive change. A 2024 systematic review (R6, McMorris) judges the cognitive results equivocal despite evidence that supplementation raises brain creatine, and a 2026 survey of 2,178 users (R26) found 64.4% of those taking creatine for cognition perceived no cognitive benefit. Trials under acute sleep deprivation (R13, R24; reviewed in R2) consistently report attenuated deterioration, but are few and small. Taken together the records point to a small, domain-limited benefit (memory, older or metabolically stressed adults) with low certainty, and to no demonstrable effect on general cognitive performance in healthy young adults.",
+  "verdict": "suggests_with_uncertainty",
+  "verdict_refers_to": "Creatine supplementation improves cognitive performance (most specifically memory) relative to placebo in adults; the suggestion applies to memory in older or sleep-deprived adults and does not extend to general cognition in healthy young adults, where the pooled evidence is null.",
+  "outcomes": [
+    {
+      "outcome": "Memory (short-term/working and recall measures) in healthy adults, creatine vs placebo",
+      "direction": "benefit",
+      "magnitude": "Pooled SMD 0.29 (95% CI 0.04-0.53), I2 = 66%, 8 RCTs (R7, search to Sept 2021). Older adults 66-76 y: SMD 0.88 (0.22-1.55), I2 = 83%; younger 11-31 y: SMD 0.03 (-0.14 to 0.20), I2 = 0%. Post-2021 trials not in R7: R20 (n=123) Backward Digit Span p=0.064, eta2p=0.029; R14 'selected markers of memory' improved, labelled exploratory, numbers not reported in abstract; R21 (older women, 24 wk) no change.",
+      "certainty": "low",
+      "grade_domains": {
+        "risk_of_bias": {"judgment": "serious", "reason": "Included trials are small; R9 rates the vegetarian trials moderate-high risk of bias and R1 rates 3 of 6 older-adult studies 'poor'; randomisation not stated in abstracts of R23 and R25; R20 is the only pre-registered trial identified."},
+        "inconsistency": {"judgment": "serious", "reason": "I2 = 66% overall and 83% in the older subgroup (R7); R21 (null) and R23 (positive) are both older-adult trials; R6 describes results as equivocal."},
+        "indirectness": {"judgment": "not serious", "reason": "Outcome is memory in healthy adults, directly matching the question; doses (2.2-20 g/d) and durations (5 d-24 wk) vary widely, which limits transfer to any single regimen."},
+        "imprecision": {"judgment": "serious", "reason": "Lower CI bound of the pooled estimate (0.04) is close to no effect; total n in the meta-analysis not reported in abstract; older subgroup rests on very few trials."},
+        "publication_bias": {"judgment": "undetected but suspected", "reason": "Small positive early trials (R23, R25) and no funnel-plot or Egger result reported in any abstract; the one published comment on R7 is not in the pack."}
+      },
+      "key_refs": ["R7", "R11", "R20", "R21", "R23", "R25", "R22", "R14", "R6"],
+      "evidence_type": "causal",
+      "abstract_only": true
+    },
+    {
+      "outcome": "Fluid intelligence/reasoning, processing speed and reaction time in healthy adults",
+      "direction": "mixed",
+      "magnitude": "R25 (n=45 vegetarians, crossover, 5 g/d x 6 wk): significant improvement on Raven's APM and backward digit span (p<0.0001; effect size not reported in abstract). R20 (n=123, same tasks, 5 g/d x 6 wk): Raven's null (p=0.327, eta2p=0.008), no vegetarian advantage. R22 (n=128 young women, 20 g/d x 5 d): no effect on verbal fluency or vigilance; reduced choice-reaction-time variability. R12 (n=36, 4 arms, creatine HCl 1,500 mg/d x 8 wk): reaction time 1.2% vs 6.6% change, p<0.01. R16 (n=14 crossover, 20 g/d x 7 d): digit cancellation d = 0.77, p=0.013. R19 (n=12, creatine nitrate): Stroop improved only with co-ingested caffeine (p=0.04, effect size 0.163).",
+      "certainty": "very_low",
+      "grade_domains": {
+        "risk_of_bias": {"judgment": "serious", "reason": "Very small samples (12-45) in all positive trials; multiple arms with ~9 per arm in R12; many outcomes tested per trial with no stated correction except R18."},
+        "inconsistency": {"judgment": "serious", "reason": "Direct non-replication: R20 did not reproduce R25's Raven's effect with the same regimen and a larger sample."},
+        "indirectness": {"judgment": "serious", "reason": "R12 used creatine hydrochloride/ethyl ester and R19 creatine nitrate plus caffeine, not creatine monohydrate alone; populations are vegetarians, menopausal women, resistance-trained men."},
+        "imprecision": {"judgment": "very serious", "reason": "No pooled estimate; single-trial effects with no CIs in abstracts; R20's effect size is near zero."},
+        "publication_bias": {"judgment": "suspected", "reason": "Many tiny trials reporting one significant test among many; null exploratory tests in R20 and R15 reported only in the larger pre-registered studies."}
+      },
+      "key_refs": ["R25", "R20", "R22", "R12", "R16", "R19", "R11"],
+      "evidence_type": "causal",
+      "abstract_only": true
+    },
+    {
+      "outcome": "Cognitive performance during acute sleep deprivation",
+      "direction": "benefit",
+      "magnitude": "R13 (n=29, single dose 0.2 g/kg, 21 h sleep deprivation): reduced deterioration in logical, numerical, language processing-speed tasks and PVT, 'improvement of up to 12%'; effect sizes not reported in abstract. R24 (n not reported, 20 g/d x 7 d, up to 36 h): creatine better than placebo on central executive task only at 36 h (p<0.05), no difference on short-term memory, choice reaction time, mood. R2 (systematic review, 5 studies, narrative synthesis): 'positive trend', effects vary by domain, research sparse.",
+      "certainty": "low",
+      "grade_domains": {
+        "risk_of_bias": {"judgment": "serious", "reason": "Small samples; R24 adds moderate exercise as a co-intervention; design of R13 (parallel vs crossover) not stated in abstract."},
+        "inconsistency": {"judgment": "not serious", "reason": "Direction consistent across R13, R24 and the R2 review, though affected domains differ between trials."},
+        "indirectness": {"judgment": "serious", "reason": "Laboratory total sleep deprivation in healthy volunteers; single very high doses (0.2-0.35 g/kg) in R13 are not typical supplementation."},
+        "imprecision": {"judgment": "very serious", "reason": "No pooled estimate; 5 studies in total per R2; no CIs in abstracts."},
+        "publication_bias": {"judgment": "undetected", "reason": "Too few studies to assess; not addressed in abstracts."}
+      },
+      "key_refs": ["R2", "R13", "R24"],
+      "evidence_type": "causal",
+      "abstract_only": true
+    },
+    {
+      "outcome": "Cognition in older adults (55+), with and without cognitive impairment",
+      "direction": "mixed",
+      "magnitude": "R1 (systematic review, 6 studies, 1,542 participants; 2 double-blind RCTs + 4 cross-sectional dietary-intake studies): 5 of 6 studies positive, mainly memory and attention; quality 1 good, 2 fair, 3 poor. R7 older subgroup SMD 0.88 (0.22-1.55). R23 (n=32, 20 g/d x 1 wk): significant on all tasks except backward number recall. R21 (n=56, 24 wk, 4 arms): no change in any cognitive parameter, with or without strength training. R14 (n=64 analysed, 45-65 y, 10 g/d x 12 wk): 'selected markers' improved, exploratory. R28 (scoping review): no RCTs in dementia; one human pilot (n=20, 20 g/d x 8 wk) raised brain creatine 11% with improved fluid cognition; one rodent study reported worse spatial memory in males.",
+      "certainty": "low",
+      "grade_domains": {
+        "risk_of_bias": {"judgment": "serious", "reason": "Half of R1's evidence is cross-sectional dietary recall, confounded by overall diet and health; most studies rated fair or poor."},
+        "inconsistency": {"judgment": "serious", "reason": "Longest and largest older-adult RCT in the pack (R21) is null while the 1-week R23 trial is positive; I2 83% in R7's older subgroup."},
+        "indirectness": {"judgment": "serious", "reason": "No trials in adults with dementia or MCI (R28); healthy community-dwelling samples only."},
+        "imprecision": {"judgment": "serious", "reason": "Wide CI (0.22-1.55) from few trials; R14 effects unquantified in abstract."},
+        "publication_bias": {"judgment": "suspected", "reason": "Small positive studies dominate; R1's two published comments not available to check."}
+      },
+      "key_refs": ["R1", "R7", "R21", "R23", "R14", "R28", "R10"],
+      "evidence_type": "causal and observational (R1 mixes both)",
+      "abstract_only": true
+    },
+    {
+      "outcome": "Real-world perceived cognitive benefit among supplement users",
+      "direction": "null",
+      "magnitude": "R26 (cross-sectional survey, n=2,178, median age 55): cognitive performance was the most common goal (67.8%) but 64.4% of cognitive-goal endorsers did not perceive a matched cognitive benefit (McNemar p<.001); women had lower odds of perceived benefit (OR 0.66, 95% CI 0.55-0.80).",
+      "certainty": "very_low",
+      "grade_domains": {
+        "risk_of_bias": {"judgment": "very serious", "reason": "Self-selected app users, self-reported perception, no control group, no objective cognitive measure."},
+        "inconsistency": {"judgment": "not applicable", "reason": "Single study."},
+        "indirectness": {"judgment": "serious", "reason": "Perceived benefit is not measured cognitive performance."},
+        "imprecision": {"judgment": "not serious", "reason": "Large sample, narrow CIs."},
+        "publication_bias": {"judgment": "undetected", "reason": "Single study; cannot assess."}
+      },
+      "key_refs": ["R26"],
+      "evidence_type": "observational / effectiveness proxy",
+      "abstract_only": true
+    }
+  ],
+  "evidence_layers": {
+    "mechanistic_plausibility": "Supported: supplementation raises brain creatine, 'albeit to a limited extent' (R6); frontal brain creatine +16.4% vs 0.9% in R12; +11% in the pilot summarised by R28; preclinical mitochondrial protection in rat TBI (R29). R9 notes no effect on brain phosphocreatine in vegetarians. Plausibility does not establish effect.",
+    "observational_association": "Cross-sectional dietary-creatine studies in older adults mostly positive but rated poor/fair (R1); user survey shows most users do not perceive cognitive benefit (R26).",
+    "causal_evidence": "Small RCTs; one meta-analysis with a small pooled memory benefit of low certainty (R7); largest trial borderline/null (R20); long older-adult trial null (R21); sleep-deprivation trials positive but few (R13, R24).",
+    "real_world_effectiveness": "Not demonstrated in any record; only perception data (R26)."
+  },
+  "contradictory_evidence": [
+    {"ref": "R21", "finding": "24-week, 4-arm, double-blind RCT in older women (n=56): neither creatine nor strength training altered any cognitive parameter.", "quality": "Longest-duration older-adult RCT in the pack; small arms (n=14).", "weight": "High relative to the 1-week positive elderly trial R23; directly undermines the older-adult subgroup estimate in R7."},
+    {"ref": "R20", "finding": "Largest trial (n=123, pre-registered crossover): Raven's null (eta2p=0.008), working memory borderline (p=0.064), no effect on eight exploratory tasks, side effects more frequent (RR 4.25); vegetarians no different from omnivores.", "quality": "Highest methodological quality among primary trials (pre-registered, crossover, Bayesian analysis).", "weight": "High; it fails to replicate R25 and bounds any true effect as small."},
+    {"ref": "R6", "finding": "Systematic review concludes the research fails to support the theoretical basis for a cognitive effect; results 'somewhat equivocal' despite increased brain creatine.", "quality": "Systematic review, number of studies not in abstract; overlaps substantially with R7 (containment 0.457).", "weight": "Moderate; same evidence base read more sceptically than R7."},
+    {"ref": "R26", "finding": "64.4% of users taking creatine for cognition perceive no cognitive benefit.", "quality": "Large but self-report, uncontrolled.", "weight": "Low for efficacy; relevant to real-world effectiveness."},
+    {"ref": "R15", "finding": "Most cognitive tests unaffected by GAA or GAA+creatine over 6 weeks; several results only approached significance.", "quality": "RCT n=58 but no creatine-only arm.", "weight": "Low (wrong exposure), noted for consistency with R20."},
+    {"ref": "R10", "finding": "No additive effect of creatine over exercise on indices of mental health in older adults.", "quality": "SR of 17 RCTs, cognition data 'limited'.", "weight": "Low; outcome is mental health, cognition data sparse."},
+    {"ref": "R5", "finding": "A 2024 meta-analysis in adults exists but is represented only by its erratum; direction and magnitude unknown from the pack; it also carries a 2026 comment.", "quality": "Unassessable.", "weight": "None assigned; flagged (retracted_or_flagged) and excluded."}
+  ],
+  "synthesis_hierarchy": "R7 (2023 meta-analysis, 8 RCTs) supersedes R11 (2018 SR, 6 RCTs, no pooling; overlap_warnings containment 0.348) for memory in healthy adults and both are counted once. R6 (2024 SR) overlaps R7 (containment 0.457) and is treated as an alternative reading of largely the same trials, not independent confirmation. R1 (2026) is the best synthesis for older adults but mixes 2 RCTs with 4 cross-sectional studies. R2 (2026) is the only synthesis for sleep deprivation (narrative, 5 studies). R5 cannot be ranked. Post-2021 trials (R12, R13, R14, R16, R18, R20) are not in any synthesis in the pack.",
+  "study_type_corrections": [
+    {"ref": "R13", "engine": "rct, n=21", "verified": "placebo-controlled single-dose trial, n=29 (21 is hours of sleep deprivation); parallel vs crossover not stated in abstract"},
+    {"ref": "R14", "engine": "rct, n=None", "verified": "double-blind RCT, 73 enrolled, 64 analysed; exercise/diet arm self-selected, not randomised"},
+    {"ref": "R15", "engine": "rct, n=None", "verified": "double-blind RCT, n=58, three arms, no creatine-only arm"},
+    {"ref": "R16", "engine": "rct, n=None", "verified": "double-blind crossover RCT, n=14"},
+    {"ref": "R18", "engine": "rct, n=None", "verified": "randomised counterbalanced crossover, n=40 male adolescents"},
+    {"ref": "R19", "engine": "rct, n=None", "verified": "double-blind crossover RCT, n=12; exposure is creatine nitrate"},
+    {"ref": "R21", "engine": "rct, n=14", "verified": "parallel 4-arm RCT, n=14 per arm, 56 total"},
+    {"ref": "R22", "engine": "rct, n=None", "verified": "double-blind RCT, n=128 young adult females"},
+    {"ref": "R23", "engine": "rct, n=17", "verified": "placebo-controlled two-group trial, n=15+17=32; randomisation not stated in abstract"},
+    {"ref": "R25", "engine": "controlled_trial, n=None", "verified": "double-blind placebo-controlled crossover, n=45; randomisation not stated in abstract"},
+    {"ref": "R26", "engine": "cross_sectional, n=1101", "verified": "cross-sectional survey, n=2,178 (1,077 women, 1,101 men)"},
+    {"ref": "R28", "engine": "narrative_review, n=20", "verified": "scoping review (PRISMA-ScR), 6 studies; n=20 is the single human pilot"},
+    {"ref": "R12", "engine": "rct, n=36", "verified": "correct; four arms (~9 per arm); creatine hydrochloride / ethyl ester, not monohydrate"},
+    {"ref": "R5", "engine": "meta_analysis", "verified": "record is a Published Erratum; no abstract or results available"},
+    {"ref": "R1", "engine": "systematic_review, n=1542", "verified": "correct; 2 RCTs + 4 cross-sectional"},
+    {"ref": "R11", "engine": "systematic_review, n=281", "verified": "correct; 6 RCTs, no meta-analysis"},
+    {"ref": "R7", "engine": "meta_analysis, n=None", "verified": "SR of 10 RCTs, 8 pooled; participant n not in abstract"}
+  ],
+  "funding_and_conflicts": "No funding or conflict-of-interest statements are visible in any abstract. R12 is from a group with prior formulation-specific creatine work and tests proprietary-style formulations; R26 surveyed users of a commercial supplement app (SuppCo, Inc.); R19 tests creatine nitrate. These are noted, not verified (abstract-only).",
+  "generalisability": "The question names no population, so the target is adults in general. The trial evidence comes from narrow groups: university-age volunteers and vegetarians (R20, R22, R25), small elderly samples of healthy community-dwelling people (R21, R23), peri/postmenopausal women (R12), resistance-trained or physically active men (R16, R19), adolescent athletes (R18) and sleep-deprived volunteers (R13, R24). No trials in people with dementia or mild cognitive impairment exist (R28). Doses range from 750 mg/d to 20 g/d and 0.2-0.35 g/kg single doses, durations from one dose to 24 weeks, and formulations vary (monohydrate, hydrochloride, ethyl ester, nitrate), so no single regimen is supported. The best-supported subgroups are older adults and acute sleep deprivation; the clearest null is healthy young adults on general cognition.",
+  "what_would_change_this": "A decisive study would be a pre-registered, multi-site, double-blind parallel RCT of creatine monohydrate (e.g. 5 g/d) versus placebo for at least 12 weeks in several hundred adults, stratified by age (young vs 65+) and by habitual creatine intake, with brain creatine measured by MRS, a pre-specified primary memory outcome and standard fluid-cognition secondaries, and funnel-plot-capable reporting. A null primary result with CI excluding SMD 0.2 in older adults would move the verdict to 'contradicts'; replication of SMD around 0.3 or larger in memory with CI excluding zero in a pre-registered trial of that size would move it to 'strongly_supports' for memory. Access to the full results of the 2024 meta-analysis (R5) and the published comments on R7 and R1 could also change the estimate.",
+  "possibly_missed_studies_not_verified": [
+    "Xu et al. 2024, The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis (original article; pack holds only the erratum)",
+    "Forbes et al. 2022, Effects of Creatine Supplementation on Brain Function and Health (review)",
+    "Candow et al. 2023, 'Heads Up' for Creatine Supplementation and its Potential Applications for Brain Health and Function (review)",
+    "Gordji-Nejad et al. 2024, Single dose creatine improves cognitive performance and induces changes in cerebral high energy phosphates during sleep deprivation (the 0.35 g/kg study referred to in R13)",
+    "Dolan et al. 2019, Beyond muscle: the effects of creatine supplementation on brain creatine, cognitive processing, and traumatic brain injury (review)"
+  ],
+  "records_used": ["R1", "R2", "R6", "R7", "R11", "R12", "R13", "R14", "R16", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "R25", "R26", "R28"],
+  "records_excluded": [
+    {"ref": "R3", "why": "Wrong outcome: psychiatric symptom scores in mental disorders, not cognitive performance."},
+    {"ref": "R4", "why": "Wrong population/outcome: combat-sport athletes; abstract reports no cognitive results."},
+    {"ref": "R5", "why": "Record is a Published Erratum with no abstract or results; flagged in retracted_or_flagged; original meta-analysis results not in pack."},
+    {"ref": "R8", "why": "Wrong population: traumatic brain injury in children/adolescents and mice; no extractable cognitive effect data; non-standard 'systemic review'."},
+    {"ref": "R9", "why": "Mostly muscle outcomes in vegetarian athletes; its cognitive statements rest on R22/R25, already counted as primary records."},
+    {"ref": "R10", "why": "Creatine plus exercise; outcome 'mental health'; abstract reports no cognition data (used only as noted contradictory context)."},
+    {"ref": "R15", "why": "Wrong exposure: guanidinoacetic acid with/without creatine, no creatine-only arm (noted in contradictory evidence only)."},
+    {"ref": "R17", "why": "Wrong outcome: depression severity (PHQ-9) with CBT; no cognitive measure."},
+    {"ref": "R27", "why": "Narrative review of ergogenic effects; cognition mentioned in passing without data."},
+    {"ref": "R29", "why": "Preclinical rat TBI model; human data exist."},
+    {"ref": "R30", "why": "Wrong exposure: creatine kinase as a biomarker in autism."},
+    {"ref": "R31", "why": "Wrong exposure: PCSK9 inhibitor safety; 'creatine kinase' only."},
+    {"ref": "R32", "why": "Sarcopenia review; creatine mentioned for muscle only."},
+    {"ref": "R33", "why": "Wrong exposure: MRS creatine levels in MCI/AD, not supplementation."},
+    {"ref": "R34", "why": "Wrong outcome/population: fatigue in paediatric rheumatic disease."},
+    {"ref": "R35", "why": "Protocol; HMB/2-HOBA trial; 'D3-creatine' is a measurement method."},
+    {"ref": "R36", "why": "Wrong exposure: resistance exercise; creatine is an MRS metabolite."},
+    {"ref": "R37", "why": "Wrong exposure: hydrogen-rich water."},
+    {"ref": "R38", "why": "Antioxidant position stand; creatine in a list, no cognitive data."},
+    {"ref": "R39", "why": "Sports-supplement overview; no cognitive data."},
+    {"ref": "R40", "why": "Wrong exposure: NAA/Cr ratio in gluten ataxia."},
+    {"ref": "R41", "why": "Statin safety statement; 'creatine kinase' only; flagged ErratumIn."},
+    {"ref": "R42", "why": "Case report of glioma; MRS creatine only."},
+    {"ref": "R43", "why": "Case report, GAMT deficiency (creatine synthesis disorder); not a supplementation-in-the-general-population question."},
+    {"ref": "R44", "why": "Wrong exposure: microbiome metabolic modelling in AD."},
+    {"ref": "R45", "why": "Wrong exposure: MRS creatine ratios in depression."},
+    {"ref": "R46", "why": "Wrong exposure: MRS metabolites normalised to creatine in epilepsy."},
+    {"ref": "R47", "why": "Wrong outcome: muscle strength and lean mass."},
+    {"ref": "R48", "why": "Wrong exposure/outcome: BCAA and creatine kinase."},
+    {"ref": "R49", "why": "Broad narrative-style review of creatine in health; no cognition-specific data in abstract."},
+    {"ref": "R56", "why": "Wrong outcome: depression (HAM-D) in women on SSRI."},
+    {"ref": "R50-R55, R57-R76", "why": "Off-topic OpenAlex citation-sorted noise (COVID AI, HIV/ataxia/schizophrenia MRS, statin and cardiology guidelines, curcumin, rutin, saponins, algae, cytokine storm, training load, brain development, oxidative stress reviews); no creatine supplementation exposure."}
+  ]
+}
