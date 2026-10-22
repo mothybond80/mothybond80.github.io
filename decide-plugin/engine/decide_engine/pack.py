@@ -168,6 +168,8 @@ def build_pack(question: str, mode: str = "quick", fetcher: Fetcher | None = Non
     tiers = {"A": 0, "B": 0, "C": 0}
     for r in merged:
         tiers[r["relevance"]["tier"]] += 1
+    evidence_gap = (tiers["A"] + tiers["B"]) == 0
+    pop_cov = population_coverage(merged, pq)
         counts[r["classification"]["study_type"]] = counts.get(r["classification"]["study_type"], 0) + 1
 
     pack = {
@@ -187,6 +189,11 @@ def build_pack(question: str, mode: str = "quick", fetcher: Fetcher | None = Non
         "n_records": len(merged),
         "study_type_counts": counts,
         "relevance_tiers": tiers,
+        "evidence_gap": evidence_gap,
+        "evidence_gap_note": ("No record mentions both the exposure and the outcome. The searches ran (see `searches`); the indexed "
+                              "literature contains nothing on-topic in these databases. The only valid verdict is 'insufficient'; "
+                              "tier C records are adjacent noise and must not be used to fill the gap.") if evidence_gap else None,
+        "population_coverage": pop_cov,
         "retracted_or_flagged": [r["ref"] for r in merged if r.get("is_retracted") or r.get("integrity_flags")],
         "missing_urls": essential_blocked,
         "optional_missing_urls": [l.url for l in f.log if l.source == "blocked" and l.url not in essential_blocked],
@@ -233,6 +240,39 @@ def relevance(r: dict[str, Any], pq: ParsedQuestion) -> dict[str, Any]:
     return {"tier": tier, "exposure_in_title": e_title, "exposure_in_text": e_any, "outcome_in_title": o_title, "outcome_in_text": o_any}
 
 
+POP_TERMS = {
+    "adults": (["adult", "adults"], ["child", "children", "adolescent", "paediatric", "pediatric", "youth", "boys", "girls", "infant"]),
+    "men": (["men", "male", "males"], []),
+    "women": (["women", "female", "females"], []),
+    "children": (["child", "children", "paediatric", "pediatric"], ["adult", "adults"]),
+    "older adults": (["older adult", "elderly", "aged 6", "aged 7", "seniors"], ["young adult", "students"]),
+}
+
+
+def population_coverage(records: list[dict[str, Any]], pq: ParsedQuestion) -> dict[str, Any] | None:
+    """Does the on-topic literature actually study the population in the question? A question about
+    adults answered mostly by paediatric trials is an indirectness problem the appraiser must see."""
+    import re as _re
+    if not pq.population:
+        return None
+    key = pq.population.lower().strip()
+    terms, contrary = POP_TERMS.get(key, ([key], []))
+    ab = [r for r in records if r.get("relevance", {}).get("tier") in ("A", "B")]
+    if not ab:
+        return {"population": pq.population, "records_ab": 0, "mentioning": 0, "contrary": 0, "warning": None}
+    def has(ts: list[str], r: dict[str, Any]) -> bool:
+        text = ((r.get("title") or "") + " " + (r.get("abstract") or "")).lower()
+        return any(_re.search(r"\b" + _re.escape(t), text) for t in ts)
+    mentioning = sum(has(terms, r) for r in ab)
+    contrary_n = sum(has(contrary, r) for r in ab) if contrary else 0
+    warning = None
+    if mentioning < max(1, len(ab) // 4) or (contrary and contrary_n > mentioning):
+        warning = (f"Only {mentioning} of {len(ab)} on-topic records mention '{pq.population}'"
+                   + (f"; {contrary_n} study a different population" if contrary else "")
+                   + ". Treat as indirect evidence and say so; do not generalise silently.")
+    return {"population": pq.population, "records_ab": len(ab), "mentioning": mentioning, "contrary": contrary_n, "warning": warning}
+
+
 def _log_summary(f: Fetcher) -> dict[str, Any]:
     out = {"cache": 0, "network": 0, "blocked": 0, "error": 0}
     for l in f.log:
@@ -253,6 +293,8 @@ APPRAISER_CONTRACT = {
         "Say what full text you did not see. Findings based only on abstracts must be labelled 'abstract-only'.",
         "Never cite a record that is not in the pack. Every claim carries the record's ref (R-number) and identifier.",
         "If the records cannot answer the question, say 'insufficient evidence' and specify what study would be needed.",
+        "If `evidence_gap` is true, the verdict is 'insufficient'. Do not use tier C records to build an answer.",
+        "If `population_coverage.warning` is set, the evidence is indirect for the population asked about: downgrade indirectness and state the mismatch explicitly.",
     ],
     "output_schema": {
         "neutral_question": "string",

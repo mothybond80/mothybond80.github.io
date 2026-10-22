@@ -137,3 +137,16 @@ def test_erratum_does_not_swallow_the_article():
     assert len(out) == 2
     assert out[0]["abstract"].startswith("Background")
     assert classify(erratum)["study_type"] == "erratum"
+
+
+def test_population_coverage_and_evidence_gap():
+    from decide_engine.pack import population_coverage
+    from decide_engine.question import parse_question
+    pq = parse_question("Can dietary interventions improve adult ADHD?")
+    assert pq.population == "adults"
+    kids = [{"relevance": {"tier": "A"}, "title": "Diet in children with ADHD", "abstract": "Children and adolescents aged 6-12..."} for _ in range(4)]
+    cov = population_coverage(kids, pq)
+    assert cov["mentioning"] == 0 and cov["contrary"] == 4 and cov["warning"]
+    adults = [{"relevance": {"tier": "A"}, "title": "Elimination diet in adults with ADHD", "abstract": "Adult outpatients..."} for _ in range(4)]
+    assert population_coverage(adults, pq)["warning"] is None
+    assert population_coverage([], pq)["records_ab"] == 0

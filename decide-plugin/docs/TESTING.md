@@ -182,6 +182,19 @@ terms. For cold water immersion and ADHD the correct outcome of a tight
 search is very few records, which the appraiser must report as insufficient
 evidence rather than fill with adjacent literature.
 
+Re-run after both fixes (Mac mini, live, commit 6eff40e):
+
+| subject | records | tier A | tier B | on-topic among A+B | note |
+|---|---|---|---|---|---|
+| extraversion | 35 | 2 | 13 | about 6 of 15 | top hit on topic; residual noise is incidental-personality papers |
+| diet and ADHD | 88 | 20 | 28 | about 35 of 48 | top 10 all ADHD/diet syntheses; 1 retracted record flagged; most studies paediatric although the question says adults |
+| cold plunge and ADHD | 20 | 0 | 0 | none | all PubMed arms return 0; OpenAlex returns adjacent noise only; correct answer is "no indexed evidence" |
+
+Two engine additions followed: `evidence_gap` (no tier A/B records; the
+contract then permits only an 'insufficient' verdict) and
+`population_coverage` (warns when the on-topic records mostly study a
+different population from the one asked about, as in diet/ADHD).
+
 Note on exit codes: `decide-engine verify` exits 2 when any verdict is not
 verified (retracted, not_found, title_mismatch) and 3 when a verdict is
 unverifiable offline; `search` exits 3 when essential URLs were blocked.
