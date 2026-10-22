@@ -200,8 +200,33 @@ verified (retracted, not_found, title_mismatch) and 3 when a verdict is
 unverifiable offline; `search` exits 3 when essential URLs were blocked.
 These are signals, not crashes.
 
+## 2c. Installed plugin, headless end-to-end `/decide quick` (Mac mini, 22 Oct 2026)
+
+Installed at user scope from the branch checkout (`decide@mothybond80`), Hermes
+skill symlinked. Three headless runs of
+`claude -p "/decide:decide quick Does creatine improve cognitive performance?"`:
+
+| run | engine state | outcome |
+|---|---|---|
+| 1 | pack.json only (483 KB) | pack in 1 min; appraiser finished in 10 min with a sensible verdict; challenger spent 17+ min exploring the JSON with scratch scripts; job cap hit, no report |
+| 2 | + `digest.md` (110 KB) | appraiser 11 min; challenger still over budget at the 22-min cap |
+| 3 | + slim quick digest (82 KB: 30 tier A in full, B titles, C count), agents capped at 12 / 8 tool calls | **complete in 17 m 41 s, exit 0**: appraisal 6.5 min, challenge 1.8 min, verification 3 min (72/72 citations verified, 0 retracted), verdict and lock written |
+
+Run 3 result: appraisal `suggests_with_uncertainty`; challenger
+`verdict_weakened` (it rejected one ungrounded claim, which was dropped);
+final sentence "The evidence suggests this, but uncertainty remains", overall
+certainty low. Consistent with the earlier sandbox runs and with the live
+engine packs.
+
+Known wrinkles from these runs: the orchestrator wrote only the first line of
+`status.md`; quick mode is about 18 minutes of wall time on that machine, not
+"quick" in the conversational sense; the headless stdout carried a system
+reminder string through from a subagent (harmless, data not instruction).
+
 ## 3. What was NOT tested
 
+- Deep mode end to end through the installed plugin (engine deep mode was
+  run live; the agent stages were not).
 - Deep mode's second phrasing (orchestrator step) and Scite tallies as used
   by an appraiser.
 - The plugin agents as installed (`decide:evidence-appraiser`) rather than

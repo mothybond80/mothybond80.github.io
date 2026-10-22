@@ -43,6 +43,15 @@ From the repository root (this repo is also a plugin marketplace):
 ```
 
 or for local development: `claude --plugin-dir /path/to/decide-plugin`.
+The slash command is `/decide:decide ...` (plugin:skill). Until the PR is
+merged, the marketplace can be added from a local checkout:
+`claude plugin marketplace add /path/to/checkout` then
+`claude plugin install decide@mothybond80 --scope user`. After pulling new
+commits, `claude plugin update decide@mothybond80` picks them up when the
+version in `plugin.json` has changed; otherwise uninstall and reinstall.
+
+Expect a quick run to take 15-20 minutes of wall time: the appraiser and
+challenger are full agent passes over the evidence, not a single prompt.
 
 Requirements: python3 >= 3.9 on PATH (the Mac mini system Python 3.9.6 works); outbound HTTPS to
 `eutils.ncbi.nlm.nih.gov`, `api.openalex.org`, `api.crossref.org`,

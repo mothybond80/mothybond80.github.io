@@ -1,6 +1,6 @@
 [project]
 name = "decide-engine"
-version = "0.1.0"
+version = "0.1.1"
 description = "Evidence-to-Decision Engine: framing-blind literature retrieval, citation verification and evidence packs for Claude Code and Hermes"
 readme = "README.md"
 requires-python = ">=3.9"

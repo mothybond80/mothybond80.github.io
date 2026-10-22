@@ -173,7 +173,7 @@ def build_pack(question: str, mode: str = "quick", fetcher: Fetcher | None = Non
     pop_cov = population_coverage(merged, pq)
 
     pack = {
-        "engine_version": "0.1.0",
+        "engine_version": "0.1.1",
         "built_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "mode": mode,
         "limits": lim,

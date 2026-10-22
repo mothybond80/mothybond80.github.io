@@ -11,4 +11,4 @@ Design rules (see docs/ARCHITECTURE.md):
     at install time and nothing that phones home.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"

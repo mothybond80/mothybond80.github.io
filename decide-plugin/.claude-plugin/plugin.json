@@ -1,7 +1,7 @@
 {
   "name": "decide",
   "displayName": "Evidence-to-Decision Engine",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Framing-blind scientific evidence appraisal and decision analysis: /decide quick|deep|challenge",
   "author": {"name": "Tim Bond"},
   "repository": "https://github.com/mothybond80/mothybond80.github.io",
