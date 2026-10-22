@@ -70,7 +70,9 @@ def test_digest_is_compact_and_complete():
     md = digest(pack)
     assert len(md) < len(json.dumps(pack)) / 3
     for r in pack["records"]:
-        assert f"[{r['ref']}]" in md
+        if r["relevance"]["tier"] in ("A", "B"):
+            assert f"[{r['ref']}]" in md
+    assert "Tier C records" in md
     assert "appraiser_contract" in json.dumps(pack) and "Appraiser contract" in md
     assert "Tier A records" in md and "Searches actually run" in md
     header = md.split("## Tier A records")[0].lower()
