@@ -77,6 +77,11 @@ bin/decide-engine cache-put URL body.json     # feed a response fetched elsewher
 bin/decide-engine --offline search ...        # never touch the network
 ```
 
+Exit codes: `search` 0 ok, 3 essential URLs blocked (see `missing_urls`);
+`verify` 0 all verified, 2 at least one not verified (retracted, not_found,
+title_mismatch), 3 at least one unverifiable offline. Tested on Python 3.9,
+3.11, 3.13 and 3.14.
+
 ## Hermes
 
 See `hermes/README.md`: Route A (Hermes skill calling the same CLI, zero

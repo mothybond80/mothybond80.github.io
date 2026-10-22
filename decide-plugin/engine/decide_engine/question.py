@@ -264,8 +264,8 @@ SYNONYMS: dict[str, list[str]] = {
     "cognitive performance": ["cognition", "cognitive", "memory", "executive function", "intelligence"],
     "red meat consumption": ["red meat", "unprocessed meat", "processed meat", "meat consumption"],
     "longevity mortality": ["mortality", "all-cause mortality", "longevity", "life expectancy"],
-    "extraversion": ["extraversion", "extroversion", "personality"],
-    "romantic attractiveness": ["attractiveness", "mate preference", "romantic attraction", "mate choice", "dating"],
+    "extraversion": ["extraversion", "extroversion", "extravert*", "extrovert*"],
+    "romantic attractiveness": ["attractiveness", "mate preference", "romantic attraction", "mate choice", "speed-dating", "desirability", "mate value"],
     "income": ["income", "wealth", "money"],
     "subjective well-being happiness": ["happiness", "subjective well-being", "life satisfaction", "emotional well-being"],
     "cold water immersion": ["cold water immersion", "cold exposure", "ice bath", "cold plunge"],
@@ -277,9 +277,14 @@ SYNONYMS: dict[str, list[str]] = {
 }
 
 
+# Single-word demographics are nearly always present in abstracts and make boolean searches noisy
+# (e.g. "men" pulls in unrelated men's-health epidemiology). They stay in the PICO for the appraiser.
+GENERIC_POPULATIONS = {"men", "women", "adults", "people", "humans", "patients", "individuals", "participants"}
+
+
 def _or_block(concept: str) -> str:
     terms = SYNONYMS.get(concept) or [concept]
-    return "(" + " OR ".join(f'"{t}"' if " " in t else t for t in dict.fromkeys(terms)) + ")"
+    return "(" + " OR ".join(f'"{t}"' if (" " in t and "*" not in t) else (f"{t}[tiab]" if "*" in t else t) for t in dict.fromkeys(terms)) + ")"
 
 
 def search_strategy(pq: ParsedQuestion) -> dict:
@@ -287,7 +292,7 @@ def search_strategy(pq: ParsedQuestion) -> dict:
     blocks = [_or_block(c) for c in (pq.exposure, pq.outcome) if c]
     base = " AND ".join(blocks)
     pop = ""
-    if pq.population:
+    if pq.population and _clean_concept(pq.population) not in GENERIC_POPULATIONS:
         pop = " AND " + _or_block(_clean_concept(pq.population))
     plain = " ".join(t for c in (pq.exposure, pq.outcome) if c for t in [c])
     return {

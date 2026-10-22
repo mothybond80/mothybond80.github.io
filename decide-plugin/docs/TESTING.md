@@ -143,13 +143,41 @@ mini. Its system interpreter is Python 3.9.6; the engine was therefore tested
 under Python 3.9.25 as well as 3.13 (pack build identical). `requires-python`
 is 3.9.
 
+## 2b. Live run on the Mac mini (22 Oct 2026, dev checkout under ~/Projects, nothing installed)
+
+Run by Claude Code on the Mac mini from a fresh clone of the branch with an
+empty cache, so every request hit the live APIs (142 network calls, 0 HTTP
+errors, 0 rate-limit messages). Results file:
+`/Users/timbondlocalserver/Projects/decide-engine-live/RESULTS.md`.
+
+| check | result |
+|---|---|
+| quick-mode packs for all 7 subjects | 7/7 exit 0, no missing URLs |
+| framing: extraversion positive vs negative phrasing | identical pack_hash, identical 104 records |
+| deep mode (creatine) | 272 records, 7 searches incl. Europe PMC and linked commentary, 24 Scite tallies, 2 overlap warnings |
+| verify PMID 9500320 (Wakefield 1998) | retracted |
+| verify fabricated DOI | not_found (Crossref 404) |
+| unit tests (Python 3.11 venv) | 37 passed |
+| engine on system Python (3.14.5 on that machine) | ran cleanly |
+
+Failure mode found: the **extraversion** question returned 0 tier-A records
+and off-topic top hits (men's-health epidemiology), because the search
+expanded "extraversion" to "personality", "attractiveness" to "dating", and
+added the population word "men" as a boolean term. Fixed after the run:
+tighter synonyms (extravert*/extrovert*, mate preference, speed-dating,
+desirability), and single-word demographics (men, women, adults...) are no
+longer added to boolean queries; they stay in the PICO for the appraiser. A
+re-run of that subject is recorded below when available.
+
+Note on exit codes: `decide-engine verify` exits 2 when any verdict is not
+verified (retracted, not_found, title_mismatch) and 3 when a verdict is
+unverifiable offline; `search` exits 3 when essential URLs were blocked.
+These are signals, not crashes.
+
 ## 3. What was NOT tested
 
-- Live network runs from the Mac mini (the production environment). Expected
-  to work since every URL is standard; not demonstrated here.
-- The five other subjects at pack level (extraversion, income, cold plunge,
-  Flow headset, diet/ADHD). Only the deterministic layer was exercised.
-- Deep mode (Europe PMC, Scite tallies, second phrasing).
+- Deep mode's second phrasing (orchestrator step) and Scite tallies as used
+  by an appraiser.
 - The plugin agents as installed (`decide:evidence-appraiser`) rather than
   general-purpose subagents given the same instructions.
 - Inter-run variability of the model stages (each appraisal was run once).

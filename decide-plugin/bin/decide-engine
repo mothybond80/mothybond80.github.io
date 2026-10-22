@@ -1,5 +1,5 @@
 #!/bin/sh
 # Thin launcher so the engine runs from a plain checkout or plugin install with no pip install.
-# Standard library only; python3 >= 3.9 required (tested on 3.9 and 3.13). -I isolates from cwd/user site-packages.
+# Standard library only; python3 >= 3.9 required (tested on 3.9, 3.11, 3.13, 3.14). -I isolates from cwd/user site-packages.
 HERE="$(cd "$(dirname "$0")" && pwd)"
 exec python3 -I -c 'import sys; sys.path.insert(0, sys.argv.pop(1)); from decide_engine.cli import main; sys.exit(main())' "$HERE/../engine" "$@"
