@@ -168,9 +168,9 @@ def build_pack(question: str, mode: str = "quick", fetcher: Fetcher | None = Non
     tiers = {"A": 0, "B": 0, "C": 0}
     for r in merged:
         tiers[r["relevance"]["tier"]] += 1
+        counts[r["classification"]["study_type"]] = counts.get(r["classification"]["study_type"], 0) + 1
     evidence_gap = (tiers["A"] + tiers["B"]) == 0
     pop_cov = population_coverage(merged, pq)
-        counts[r["classification"]["study_type"]] = counts.get(r["classification"]["study_type"], 0) + 1
 
     pack = {
         "engine_version": "0.1.0",
